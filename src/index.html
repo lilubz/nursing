@@ -1,14 +1,60 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh">
 <head>
   <meta charset="utf-8">
-  <title>Nursing</title>
+  <title>智慧养老</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="renderer" content="webkit">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <style>
+    img.loading {
+      position: fixed;
+      width: 48px;
+      height: 48px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+    }
+  </style>
+
+  <script>
+    //低于ie9提示用户更新浏览器
+    (function () {
+      var ua = window.navigator.userAgent.toLowerCase();
+      var regIE = new RegExp("msie (\\d+\\.\\d+);");
+      if (regIE.test(ua)) {
+        if (parseFloat(RegExp['$1']) < 9) {
+          window.location.href = './update-browser.html';
+        }
+      }
+      // 避免 console 导致ie9首次无法加载
+      var emptyFn = function () { };
+      if (!window.console) {
+        window.console = {};
+      }
+      var consoleArr = ['log', 'info', 'warn', 'error', 'dir', 'time', 'timeEnd', 'trace', 'assert', 'Console',
+        'debug', 'dirxml', 'table', 'group', 'groupCollapsed', 'groupEnd', 'clear', 'count', 'markTimeline',
+        'profile', 'profileEnd', 'timeline', 'timelineEnd', 'timeStamp'
+      ];
+      var consoleLen = consoleArr.length;
+      while (consoleLen--) {
+        if (!window.console[consoleArr[consoleLen]]) {
+          window.console[consoleArr[consoleLen]] = emptyFn;
+        }
+      }
+    })();
+
+  </script>
+
 </head>
 <body>
-  <app-root></app-root>
+  <app-root>
+    <img class="loading" src="./assets/img/loading-black.gif" alt="">
+  </app-root>
 </body>
 </html>
