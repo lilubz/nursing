@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './layout/layout.component';
 import { HeaderComponent } from './layout/header/header.component';
+import { BlockUIModule } from 'primeng/blockui';
 
 import {
   ButtonModule,
@@ -67,7 +68,8 @@ import { LoadingComponent } from './loading/loading.component';
     OverlayPanelModule,
     ConfirmDialogModule,
     _SharedModule,
-    TooltipModule
+    TooltipModule,
+    BlockUIModule,
   ],
   declarations: [
     LayoutComponent,
@@ -108,6 +110,7 @@ import { LoadingComponent } from './loading/loading.component';
     _SharedModule,
     TooltipModule,
     LoadingComponent,
+    BlockUIModule,
   ]
 })
 export class SharedModule { }

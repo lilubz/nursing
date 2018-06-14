@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingService } from '../../core/service/loading.service';
 
 @Component({
   selector: 'app-loading',
@@ -6,11 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./loading.component.scss']
 })
 export class LoadingComponent implements OnInit {
-  isLoading = true;
+  isLoading: any = false;
 
-  constructor() { }
+  constructor(
+    private loadingService: LoadingService
+  ) { }
 
   ngOnInit() {
+    this.loadingService.loadingObserver.subscribe(loading => {
+      console.log(loading);
+      this.isLoading = loading;
+    });
   }
 
 }

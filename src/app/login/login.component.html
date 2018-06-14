@@ -1,0 +1,10 @@
+<button pButton type="button" class="ui-button-info">button</button>
+<p-button label="Click" styleClass="ui-button-info" (click)="show()"></p-button>
+
+<div #pnl1>
+  Content of Panel
+</div>
+
+<p-blockUI [blocked]="true" [target]="pnl1">
+  <i class="fa fa-lock fa-5x" style="position:absolute;top:25%;left:50%"></i>
+</p-blockUI>
