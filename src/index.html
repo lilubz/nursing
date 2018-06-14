@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
   <meta charset="utf-8">
-  <title>智慧养老</title>
+  <title>永炜智慧养老服务平台</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,6 +19,10 @@
       top: 50%;
       transform: translate(-50%, -50%);
       z-index: 9999;
+      -webkit-user-select:none;
+      -moz-user-select:none;
+      -ms-user-select:none;
+      user-select:none;
     }
   </style>
 
@@ -28,23 +32,8 @@
       var ua = window.navigator.userAgent.toLowerCase();
       var regIE = new RegExp("msie (\\d+\\.\\d+);");
       if (regIE.test(ua)) {
-        if (parseFloat(RegExp['$1']) < 9) {
+        if (parseFloat(RegExp['$1']) < 10) {
           window.location.href = './update-browser.html';
-        }
-      }
-      // 避免 console 导致ie9首次无法加载
-      var emptyFn = function () { };
-      if (!window.console) {
-        window.console = {};
-      }
-      var consoleArr = ['log', 'info', 'warn', 'error', 'dir', 'time', 'timeEnd', 'trace', 'assert', 'Console',
-        'debug', 'dirxml', 'table', 'group', 'groupCollapsed', 'groupEnd', 'clear', 'count', 'markTimeline',
-        'profile', 'profileEnd', 'timeline', 'timelineEnd', 'timeStamp'
-      ];
-      var consoleLen = consoleArr.length;
-      while (consoleLen--) {
-        if (!window.console[consoleArr[consoleLen]]) {
-          window.console[consoleArr[consoleLen]] = emptyFn;
         }
       }
     })();

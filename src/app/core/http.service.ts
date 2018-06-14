@@ -1,0 +1,91 @@
+import { Injectable } from '@angular/core';
+import { Headers, Http, ResponseContentType, RequestOptionsArgs } from '@angular/http';
+import { Router } from '@angular/router';
+import 'rxjs/add/operator/toPromise';
+
+import { UserStateService } from './userState.service';
+import { of } from 'rxjs/observable/of';
+
+@Injectable()
+export class HttpService {
+  private formHeaders = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded; charser=UTF-8' });
+  private formDataHeaders = new Headers({ 'Content-Type': 'multipart/form-data; charser=UTF-8' });
+  private head = new Headers({
+    'contentType': 'false',
+    'processData': 'false',
+  });
+
+  constructor(
+    private http: Http,
+    private router: Router,
+    private userStateService: UserStateService
+  ) { }
+
+  // 重封装get请求
+  getRequest = (url, data) => {
+    return this.http.get(url + '?' + this.transformRequest(data) + '&' + 't=' + new Date().getTime())
+      .toPromise()
+      .then(res => this.httpStatusFilter(res))
+      .catch(error => this.handleError(error));
+  }
+
+  // 重封装delete请求
+  delete = (url, data) => {
+    return this.http.delete(url + '?' + this.transformRequest(data))
+      .toPromise()
+      .then(res => this.httpStatusFilter(res))
+      .catch(error => this.handleError(error));
+  }
+
+  // 重封装post请求，参数序列化
+  formPostRequest = (url, data) => {
+    return this.http
+      .post(url, this.transformRequest(data), { headers: this.formHeaders });
+  }
+
+  // 重封装post请求，不修改content-type请求头
+  formDataPostRequest = (url, data, options?: RequestOptionsArgs) => {
+    return this.http
+      .post(url, data)
+      .toPromise()
+      .then(res => this.httpStatusFilter(res))
+      .catch(error => this.handleError(error));
+  }
+
+  transformRequest(obj) {
+    const str = [];
+    for (const p in obj) {
+      if (p) {
+        str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
+      }
+    }
+    return str.join('&');
+  }
+
+  private handleError(error: any): Promise<any> {
+    // this.httpStatusFilter(error);
+    return Promise.resolve({ status: -1, msg: '操作失败！' });
+  }
+
+  private httpStatusFilter(res: Response | any) {
+    switch (res.status) {
+      case 100:
+        break;
+      case 200:
+        // 没有登录
+        if (res.json().status === 10) {
+          this.userStateService.setUser(undefined);
+          this.router.navigate(['/login']);
+        }
+        break;
+      case 300:
+        break;
+      case 400:
+        break;
+      case 500:
+        break;
+    }
+    return res.json();
+  }
+
+}

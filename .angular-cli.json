@@ -18,7 +18,7 @@
       "test": "test.ts",
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
-      "prefix": "wit",
+      "prefix": "app",
       "styles": [
         "scss/styles.scss"
       ],
@@ -56,6 +56,9 @@
   },
   "defaults": {
     "styleExt": "scss",
-    "component": {}
+    "component": {},
+    "serve": {
+      "proxyConfig": "proxy.conf.js"
+    }
   }
 }
