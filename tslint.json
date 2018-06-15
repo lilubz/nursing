@@ -15,7 +15,7 @@
       "severity": "warn"
     },
     "eofline": true,
-    "forin": true,
+    "forin": false,
     "import-blacklist": [
       true,
       "rxjs",
@@ -48,6 +48,7 @@
     "no-bitwise": true,
     "no-console": [
       true,
+      "log",
       "debug",
       "info",
       "time",
@@ -120,13 +121,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      "wit",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      "wit",
       "kebab-case"
     ],
     "no-output-on-prefix": true,
