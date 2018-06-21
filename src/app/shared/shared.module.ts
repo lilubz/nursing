@@ -35,6 +35,9 @@ import {
   TooltipModule,
 } from 'primeng/primeng';
 import { LoadingComponent } from './loading/loading.component';
+import { MenuComponent } from './layout/menu/menu.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { SubmenuComponent } from './layout/submenu/submenu.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -75,6 +78,9 @@ import { LoadingComponent } from './loading/loading.component';
     LayoutComponent,
     HeaderComponent,
     LoadingComponent,
+    MenuComponent,
+    SidebarComponent,
+    SubmenuComponent,
   ],
   exports: [
     CommonModule,

@@ -1,0 +1,27 @@
+@import "../../../../scss/variable";
+
+.sidebar{
+  padding:0 40px;
+  font-size: 18px;
+  color: #333;
+  ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li{
+      box-sizing: border-box;
+      margin: 40px 0;
+      line-height: 28px;
+      border: 1px solid transparent;
+      border-radius: 15px;
+      cursor: pointer;
+    }
+    li:first-child{
+      margin-top: 20px;
+    }
+    li.active{
+      background-color: $primary-color;
+      color: white;
+    }
+  }
+}

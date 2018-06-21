@@ -1,0 +1,18 @@
+@import "../../../../scss/variable";
+
+ul,
+li{
+  padding: 0;
+  margin: 0;
+}
+ul{
+  padding-left: $sidebar-width;
+  list-style: none;
+  li{
+    // background: $secondary-color;
+    padding: 0 25px;
+  }
+  li.active{
+    background: $secondary-color;
+  }
+}
