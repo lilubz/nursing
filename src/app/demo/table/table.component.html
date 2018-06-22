@@ -1,0 +1,56 @@
+<div class="card">
+  <form action="">
+    表单
+  </form>
+  <p-table [value]="cars" [paginator]="true" [rows]="10">
+
+    <ng-template pTemplate="caption">
+      List of Cars
+    </ng-template>
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Vin</th>
+        <th>Year</th>
+        <th>Brand</th>
+        <th>Color</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-car>
+      <tr>
+        <td>{{car.vin}}</td>
+        <td>{{car.year}}</td>
+        <td>{{car.brand}}</td>
+        <td>{{car.color}}</td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="footer" let-columns>
+      <tr>
+        <td *ngFor="let col of columns">
+          {{col.header}}
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="summary">
+      There are {{cars?.length}} cars
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+      <div style = "border: 1px solid red" class="text-center">
+        没有内容。
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="paginatorleft" let-state>
+      {{state.first}}
+      <button type="button" pButton icon="fa-refresh"></button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+      <button type="button" pButton icon="fa-cloud-upload"></button>
+    </ng-template>
+
+  </p-table>
+</div>

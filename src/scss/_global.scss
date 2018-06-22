@@ -87,6 +87,9 @@ html,body{
   width: calc(100% - #{$sidebar-width} - #{$main-padding-left} - #{$main-padding-right});
   margin-left: $main-padding-left;
   margin-right: $main-padding-right;
-  background: pink;
   box-shadow: -4px 4px 4px 0px rgba(12, 6, 14, 0.1),4px 4px 4px 0px rgba(12, 6, 14, 0.1);
+}
+
+.card{
+  padding: 20px;
 }

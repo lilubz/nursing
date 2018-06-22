@@ -34,6 +34,7 @@ import {
   RadioButtonModule,
   TooltipModule,
 } from 'primeng/primeng';
+import { TableModule } from 'primeng/table';
 import { LoadingComponent } from './loading/loading.component';
 import { MenuComponent } from './layout/menu/menu.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
@@ -73,6 +74,7 @@ import { SubmenuComponent } from './layout/submenu/submenu.component';
     _SharedModule,
     TooltipModule,
     BlockUIModule,
+    TableModule,
   ],
   declarations: [
     LayoutComponent,
@@ -117,6 +119,8 @@ import { SubmenuComponent } from './layout/submenu/submenu.component';
     TooltipModule,
     LoadingComponent,
     BlockUIModule,
+    SubmenuComponent,
+    TableModule,
   ]
 })
 export class SharedModule { }

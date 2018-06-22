@@ -19,6 +19,10 @@ const routes: Routes = [
         path: 'person',
         loadChildren: './person/person.module#PersonModule',
       },
+      {
+        path: 'demo',
+        loadChildren: './demo/demo.module#DemoModule',
+      },
     ]
   },
   {

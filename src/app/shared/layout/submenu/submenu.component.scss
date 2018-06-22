@@ -8,6 +8,7 @@ ul{
   height: 48px;
   list-style: none;
   border-bottom: 2px solid $primary-color;
+  box-shadow: 10px 0px 0px 0px #f3f3f3,-10px 0px 0px 0px #f3f3f3;
   li{
     float: left;
     line-height: 36px;
@@ -20,7 +21,7 @@ ul{
     color: $secondary-color;
     i{
       position: absolute;
-      left: 28px;
+      left: calc(50% - 3px);
       bottom: -1px;
       border-left: 6px solid transparent;
       border-bottom: 6px solid $primary-color;
