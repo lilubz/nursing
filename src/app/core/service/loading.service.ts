@@ -7,12 +7,12 @@ export class LoadingService {
   public loadingObserver = this.loadingSource.asObservable();
   constructor() { }
 
-  show() {
-    this.loadingSource.next(true);
+  show(parentSelector: string = '.main') {
+    this.loadingSource.next({ parent: parentSelector, showLoading: true});
   }
 
   hide() {
-    this.loadingSource.next(false);
+    this.loadingSource.next({ showLoading: false});
   }
 
 }

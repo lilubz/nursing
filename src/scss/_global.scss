@@ -1,5 +1,6 @@
 
 html,body{
+  position: relative;
   font-size: 14px;
   padding: 0;
   margin: 0;
@@ -53,6 +54,15 @@ html,body{
   transform: translate(-50%, -50%);
 }
 
+.loading-box{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba($color: #000000, $alpha: 0.1);
+}
+
 // 布局样式
 .header,
 .menu,
@@ -60,6 +70,7 @@ html,body{
 .main{
   box-sizing: border-box;
   background-color: white;
+  position: relative;
 }
 
 .header{
@@ -92,4 +103,30 @@ html,body{
 
 .card{
   padding: 20px;
+  position: relative;
+}
+
+// webkit滚动条样式
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb:horizontal {
+  border-radius: 6px;
+  background: #888888;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: transparent;
 }

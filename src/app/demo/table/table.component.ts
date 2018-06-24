@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingService } from '../../core/service/loading.service';
 
 @Component({
   selector: 'wit-table',
@@ -17,7 +18,9 @@ export class TableComponent implements OnInit {
 
   loading: boolean;
 
-  constructor() { }
+  constructor(
+    private loadingService: LoadingService
+  ) { }
 
   ngOnInit() {
 
@@ -45,7 +48,6 @@ export class TableComponent implements OnInit {
   }
 
   loadCarsLazy(event) {
-    console.log(event);
     this.loading = false;
 
     setTimeout(() => {
