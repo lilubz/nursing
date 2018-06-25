@@ -1,55 +1,70 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http, ResponseContentType, RequestOptionsArgs } from '@angular/http';
+import { Headers, Http } from '@angular/http';
 import { Router } from '@angular/router';
-import 'rxjs/add/operator/toPromise';
 
 import { UserStateService } from './userState.service';
-import { of } from 'rxjs/observable/of';
+import { LoadingService } from './loading.service';
+import { MessageService } from 'primeng/components/common/messageservice';
+import 'rxjs/add/operator/do';
 
 @Injectable()
 export class HttpService {
   private formHeaders = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded; charser=UTF-8' });
-  private formDataHeaders = new Headers({ 'Content-Type': 'multipart/form-data; charser=UTF-8' });
-  private head = new Headers({
-    'contentType': 'false',
-    'processData': 'false',
-  });
 
   constructor(
     private http: Http,
     private router: Router,
-    private userStateService: UserStateService
+    private userStateService: UserStateService,
+    private loadingService: LoadingService,
+    private messageService: MessageService
   ) { }
 
   // 重封装get请求
-  getRequest = (url, data) => {
+  getRequest = (url, data, loadingSelector?) => {
     return this.http.get(url + '?' + this.transformRequest(data) + '&' + 't=' + new Date().getTime())
-      .toPromise()
-      .then(res => this.httpStatusFilter(res))
-      .catch(error => this.handleError(error));
-  }
-
-  // 重封装delete请求
-  delete = (url, data) => {
-    return this.http.delete(url + '?' + this.transformRequest(data))
-      .toPromise()
-      .then(res => this.httpStatusFilter(res))
-      .catch(error => this.handleError(error));
+      .do(
+        res => {
+          this.setLoading(true, loadingSelector);
+          // this.httpStatusFilter(res);
+        },
+        error => {
+          this.setLoading(false, loadingSelector);
+          this.handleError(error);
+        },
+    );
   }
 
   // 重封装post请求，参数序列化
-  formPostRequest = (url, data) => {
+  formPostRequest = (url, data, loadingSelector) => {
+    this.setLoading(true, loadingSelector);
     return this.http
-      .post(url, this.transformRequest(data), { headers: this.formHeaders });
+      .post(url, this.transformRequest(data), { headers: this.formHeaders })
+      .do(
+        res => {
+          this.setLoading(true, loadingSelector);
+          // this.httpStatusFilter(res);
+        },
+        error => {
+          this.setLoading(false, loadingSelector);
+          this.handleError(error);
+        },
+    );
   }
 
   // 重封装post请求，不修改content-type请求头
-  formDataPostRequest = (url, data, options?: RequestOptionsArgs) => {
+  formDataPostRequest = (url, data, loadingSelector?) => {
     return this.http
       .post(url, data)
-      .toPromise()
-      .then(res => this.httpStatusFilter(res))
-      .catch(error => this.handleError(error));
+      .do(
+        res => {
+          this.setLoading(true, loadingSelector);
+          // this.httpStatusFilter(res);
+        },
+        error => {
+          this.setLoading(false, loadingSelector);
+          this.handleError(error);
+        },
+    );
   }
 
   transformRequest(obj) {
@@ -62,12 +77,18 @@ export class HttpService {
     return str.join('&');
   }
 
-  private handleError(error: any): Promise<any> {
-    // this.httpStatusFilter(error);
-    return Promise.resolve({ status: -1, msg: '操作失败！' });
+  private handleError(error: any): void {
+    this.messageService.add({ severity: 'error', summary: error.status, detail: error.statusText });
   }
 
-  private httpStatusFilter(res: Response | any) {
+
+  /**
+   * 不确定是否要过滤
+   * @private
+   * @param {(Response | any)} res
+   * @memberof HttpService
+   */
+  private httpStatusFilter(res: Response | any): void {
     switch (res.status) {
       case 100:
         break;
@@ -85,7 +106,24 @@ export class HttpService {
       case 500:
         break;
     }
-    return res.json();
+  }
+
+
+  /**
+   * 设置是否显示loading组件，loadingSelector如果为空什么都不做
+   * @private
+   * @param {boolean} showLoading 是否要显示加载页面
+   * @param {string} loadingSelector 把加载组件放在哪个元素里面
+   * @memberof HttpService
+   */
+  private setLoading(showLoading: boolean, loadingSelector: string): void {
+    if (loadingSelector) {
+      if (showLoading) {
+        this.loadingService.show(loadingSelector);
+      } else {
+        this.loadingService.hide();
+      }
+    }
   }
 
 }

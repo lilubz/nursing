@@ -10,6 +10,8 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
+import { RouteReuseStrategy } from '@angular/router';
+import { AppRoutingCache } from './app-routing.cache';
 
 
 
@@ -31,6 +33,7 @@ import { HomeComponent } from './home/home.component';
       provide: LocationStrategy,
       useClass: HashLocationStrategy
     },
+    { provide: RouteReuseStrategy, useClass: AppRoutingCache }
   ],
   bootstrap: [AppComponent]
 })

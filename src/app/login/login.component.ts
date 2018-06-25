@@ -2,10 +2,10 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { HttpService } from '../core/http.service';
 import { API } from '../common/api';
 import { MessageService } from 'primeng/components/common/messageservice';
-import { LoadingService } from '../core/service/loading.service';
+import { LoadingService } from '../core/loading.service';
 
 @Component({
-  selector: 'app-login',
+  selector: 'wit-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
@@ -19,9 +19,6 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    setTimeout(item => {
-      console.log(this.elementRef);
-    })
   }
   show() {
     this.loadingService.show();

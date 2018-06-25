@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingService } from '../../core/service/loading.service';
+import { LoadingService } from '../../core/loading.service';
+import { CommonRequestService } from '../../core/common-request.service';
+import 'rxjs/add/operator/do';
 
 @Component({
   selector: 'wit-table',
@@ -19,7 +21,8 @@ export class TableComponent implements OnInit {
   loading: boolean;
 
   constructor(
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private commonRequest: CommonRequestService
   ) { }
 
   ngOnInit() {
@@ -45,6 +48,7 @@ export class TableComponent implements OnInit {
     ];
 
     this.loading = false;
+
   }
 
   loadCarsLazy(event) {
@@ -68,6 +72,9 @@ export class TableComponent implements OnInit {
         this.loading = false;
       }
     }, 1000);
+  }
+
+  test() {
   }
 
 }

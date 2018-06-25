@@ -1,5 +1,3 @@
-const release = '/wenZhouGas/';
-const local = '/api/';
 
 const URL = '/wenZhouGas/';
 export const API = {

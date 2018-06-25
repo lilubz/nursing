@@ -1,5 +1,5 @@
 import { Component, OnInit, Renderer2} from '@angular/core';
-import { LoadingService } from '../../core/service/loading.service';
+import { LoadingService } from '../../core/loading.service';
 
 @Component({
   selector: 'wit-loading',
