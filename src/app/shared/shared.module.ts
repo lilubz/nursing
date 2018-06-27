@@ -26,7 +26,6 @@ import {
   SpinnerModule,
   TieredMenuModule,
   PickListModule,
-  TreeModule,
   OverlayPanelModule,
   SharedModule as _SharedModule,
   ConfirmDialogModule,
@@ -35,7 +34,9 @@ import {
   TooltipModule,
 } from 'primeng/primeng';
 import { TableModule } from 'primeng/table';
+import { TreeModule } from './tree/tree';
 import { LoadingComponent } from './loading/loading.component';
+import { DialogModule } from 'primeng/dialog';
 import { MenuComponent } from './layout/menu/menu.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { SubmenuComponent } from './layout/submenu/submenu.component';
@@ -74,6 +75,7 @@ import { SubmenuComponent } from './layout/submenu/submenu.component';
     TooltipModule,
     BlockUIModule,
     TableModule,
+    DialogModule,
   ],
   declarations: [
     LayoutComponent,
@@ -113,6 +115,7 @@ import { SubmenuComponent } from './layout/submenu/submenu.component';
     TreeModule,
     OverlayPanelModule,
     ConfirmDialogModule,
+    DialogModule,
     _SharedModule,
     TooltipModule,
     LoadingComponent,

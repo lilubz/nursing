@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DemoComponent } from './demo.component';
 import { TableComponent } from './table/table.component';
+import { TreeComponent } from './tree/tree.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,13 @@ const routes: Routes = [
         component: TableComponent,
         data: {
           title: '表格'
+        }
+      },
+      {
+        path: 'tree',
+        component: TreeComponent,
+        data: {
+          title: '节点树'
         }
       }
     ]
