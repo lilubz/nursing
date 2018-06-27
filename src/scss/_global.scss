@@ -1,5 +1,5 @@
-
-html,body{
+html,
+body {
   position: relative;
   font-size: 14px;
   padding: 0;
@@ -10,9 +10,8 @@ html,body{
   min-height: 600px;
   color: $text-color;
   background-color: #f3f3f3;
-  font-family: "Microsoft YaHei", "Arial", "黑体", "宋体", "Roboto", "Trebuchet MS", "Arial", "Helvetica", sans-serif;
+  font-family: "Microsoft YaHei", "Arial", "黑体", "Roboto", "Trebuchet MS", "Arial", "Helvetica", sans-serif;
 }
-
 
 /* 全局CSS样式 */
 
@@ -28,19 +27,19 @@ html,body{
   text-align: center;
 }
 
-.pointer{
+.pointer {
   cursor: pointer;
 }
 
-.left{
+.left {
   float: left;
 }
 
-.right{
+.right {
   float: right;
 }
 
-.clear-fix::after{
+.clear-fix::after {
   content: ' ';
   height: 0;
   visibility: hidden;
@@ -54,7 +53,7 @@ html,body{
   transform: translate(-50%, -50%);
 }
 
-.loading-box{
+.loading-box {
   position: absolute;
   left: 0;
   right: 0;
@@ -67,19 +66,19 @@ html,body{
 .header,
 .menu,
 .sidebar,
-.main{
+.main {
   box-sizing: border-box;
   background-color: white;
   position: relative;
 }
 
-.header{
+.header {
   height: #{$header-height};
   padding: #{$header-padding};
   background-color: #fbfbfb;
 }
 
-.menu{
+.menu {
   height: #{$menu-height};
   color: white;
   font-size: 20px;
@@ -87,23 +86,138 @@ html,body{
   line-height: #{$menu-height};
 }
 
-.sidebar{
+.sidebar {
   height: calc(100% - #{$header-height} - #{$menu-height});
   width: #{$sidebar-width};
   box-shadow: 4px 4px 4px 0px rgba(12, 6, 14, 0.1);
 }
 
-.main{
+.main {
   height: calc(100% - #{$header-height} - #{$menu-height});
   width: calc(100% - #{$sidebar-width} - #{$main-padding-left} - #{$main-padding-right});
   margin-left: $main-padding-left;
   margin-right: $main-padding-right;
-  box-shadow: -4px 4px 4px 0px rgba(12, 6, 14, 0.1),4px 4px 4px 0px rgba(12, 6, 14, 0.1);
+  box-shadow: -4px 4px 4px 0px rgba(12, 6, 14, 0.1), 4px 4px 4px 0px rgba(12, 6, 14, 0.1);
 }
 
-.card{
+.card {
   padding: 20px;
-  position: relative;
+}
+
+// 表单文字
+.search-label {
+  width: 90px;
+  display: inline-block;
+  color: rgb(102, 102, 102);
+}
+
+// 全局按钮样式
+.ui-button-text-only .ui-button-text {
+  padding: 0px 0px; // 按钮为了适应16px的字体,有问题看这里
+}
+
+.ui-button .ui-button-text {
+  line-height: 1; // 为了适应16px的字体,有问题看这里
+}
+
+.btn-Success {
+  width: 60px;
+  height: 30px;
+  font-size: 16px;
+  background: $button-success !important;
+  border: 0px solid $button-success !important;
+  border-radius: 4px;
+  &:active {
+    background: $success-selected !important;
+    border: 0px solid $success-selected !important;
+  }
+}
+
+.btn-Warning {
+  width: 60px;
+  height: 30px;
+  font-size: 16px;
+  background: $button-warning !important;
+  border: 0px solid $button-warning !important;
+  border-radius: 4px;
+  &:active {
+    background: $warning-selected !important;
+    border: 0px solid $warning-selected !important;
+  }
+}
+
+// input
+.textInput {
+  width: 260px; // 输入框大小
+  height: 30px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  border: solid 1px $border-color;
+}
+
+// 表格
+// .ui-state-highlight{
+//   background-color: $td-selected !important; // 选中高亮
+//   color: #222222 !important;
+// }
+.ui-table .ui-table-tbody>tr:nth-child(even) {
+  background-color: $td-color; // 偶数行背景颜色
+}
+
+.ui-table .ui-table-thead>tr>th,
+.ui-table .ui-table-tfoot>tr>td {
+  background: #0d87e5;
+  border-color: #d9d9d9;
+  font-weight: normal;
+  color: white;
+  height: 34px;
+}
+
+.ui-table .ui-table-thead>tr>th,
+.ui-table .ui-table-tbody>tr>td,
+.ui-table .ui-table-tfoot>tr>td {
+  padding: 0;
+}
+
+.ui-table .ui-table-tbody>tr {
+  height: 34px;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+// 提示框颜色
+.ui-growl-item-container.ui-state-highlight.ui-growl-message-success {
+  background-color: $success-color;
+  border-color: $success-color;
+}
+
+.ui-growl-item-container.ui-state-highlight.ui-growl-message-info {
+  background-color: $info-color;
+  border-color: $info-color;
+}
+
+.ui-growl-item-container.ui-state-highlight.ui-growl-message-warn {
+  background-color: $warning-color;
+  border-color: $warning-color;
+}
+
+.ui-growl-item-container.ui-state-highlight.ui-growl-message-error {
+  background-color: $error-color;
+  border-color: $error-color;
+}
+
+// 超链接 a
+a {
+  color: $primary-color;
+  text-decoration: none;
+}
+
+a.router-link {
+  color: $primary-color;
+}
+
+a.router-link-active {
+  color: $primary-color;
 }
 
 // webkit滚动条样式

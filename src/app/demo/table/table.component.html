@@ -2,46 +2,84 @@
   <form action="" (click)="test()">
     表单
   </form>
-  <p-table [value]="cars" [paginator]="true" [rows]="10">
+  <br>
+  <p-growl [(value)]="msgs"></p-growl>
+  <button pButton type="button" label="按钮" class="btn-Success" (click)="mess()"></button>
+  <button pButton type="button" label="按钮" class="btn-Warning"></button>
+  <a href="javascript:void(0);" [routerLink]="['/login']" class="router-link">超链接</a>
+  <br>
+  <input maxlength="250" class="textInput" type="text" pInputText placeholder="input">
+  <br>
+  <br>
+  <br>
+  <p-table [columns]="cols" [value]="cars" (onLazyLoad)="onPageChange($event)" [paginator]="true" [rows]="10" [totalRecords]="20"
+    [rowsPerPageOptions]="[10,20,30]" [loading]="loading" loadingIcon="fa-spinner fa-pulse fa-4x fa-fw" [lazy]="true" [scrollable]="false">
 
-    <ng-template pTemplate="caption">
-      List of Cars
-    </ng-template>
 
-    <ng-template pTemplate="header">
+    <ng-template pTemplate="header" let-columns>
       <tr>
-        <th>Vin</th>
-        <th>Year</th>
-        <th>Brand</th>
-        <th>Color</th>
+        <th style="width: 2.25em">
+          <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+        </th>
+        <th>序号</th>
+        <th *ngFor="let col of columns">
+          {{col.header}}
+        </th>
+        <th style="width: 130px">
+          操作
+        </th>
       </tr>
     </ng-template>
 
-    <ng-template pTemplate="body" let-car>
+    <ng-template pTemplate="body" let-car let-index="rowIndex">
       <tr>
-        <td>{{car.vin}}</td>
+        <td>
+          <p-tableCheckbox [value]="car"></p-tableCheckbox>
+        </td>
+        <td>{{index+1}}</td>
+        <td>{{car.vim}}</td>
         <td>{{car.year}}</td>
         <td>{{car.brand}}</td>
         <td>{{car.color}}</td>
+        <td>{{car.vim}}</td>
+        <td>{{car.year}}</td>
+        <td>{{car.brand}}</td>
+        <td>{{car.color}}</td>
+        <td style="width: 130px">
+          <div style="display: inline-block">
+            <button type="button" pButton label="删除" class="btn-Success "></button>
+          </div>
+          <div style="display: inline-block">
+            <button type="button" pButton label="编辑" class="btn-Success "></button>
+          </div>
+        </td>
       </tr>
     </ng-template>
 
-    <ng-template pTemplate="footer" let-columns>
+    <!-- <ng-template pTemplate="footer" let-columns>
       <tr>
         <td *ngFor="let col of columns">
           {{col.header}}
         </td>
       </tr>
-    </ng-template>
+    </ng-template> -->
 
-    <ng-template pTemplate="summary">
+    <!-- <ng-template pTemplate="summary">
       There are {{cars?.length}} cars
+    </ng-template> -->
+    <ng-template pTemplate="summary">
+      <ul>
+        <li *ngFor="let car of selectedCars1" style="text-align: left">
+          {{car.vin + ' - ' + car.brand + ' - ' + car.year + ' - ' + car.color}}
+        </li>
+      </ul>
     </ng-template>
-
-    <ng-template pTemplate="emptymessage">
-      <div style = "border: 1px solid red" class="text-center">
-        没有内容。
-      </div>
+    <ng-template pTemplate="emptymessage" let-columns>
+      <tr>
+        <td [attr.colspan]="columns.length">
+          未查到数据！
+        </td>
+      </tr>
     </ng-template>
 
     <ng-template pTemplate="paginatorleft" let-state>

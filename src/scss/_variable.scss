@@ -13,13 +13,27 @@ $menu-height: 40px;
 $main-padding-left: 20px;
 $main-padding-right: 20px;
 
-// color
+// tooptip color
 $primary-color: #0d87e5;
 $secondary-color: #3fa2ed;
 $success-color: #2b9e2b;
-$info-color: #abc;
+$info-color: #3f9fe8;
 $warning-color: #ed953f;
-$danger-color: #e63e4c;
+$error-color:#e63e4c;
 
-// text
+// H1~H6 
+$H1-color:#333;
+// content
 $text-color: #666;
+// border and support 
+$border-color:#999;
+
+// button  
+$button-success:#2b9e2b;   
+$success-selected:#3cbb36;   
+$button-warning:#ed7e0e;   
+$warning-selected:#ed953f;
+
+// table
+$td-color:#e9f5fe;
+$td-selected:#f0f0f0;
