@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { LayoutComponent } from './shared/layout/layout.component';
+import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,10 @@ const routes: Routes = [
         loadChildren: './person/person.module#PersonModule',
       },
       {
+        path: 'system',
+        loadChildren: './system/system.module#SystemModule',
+      },
+      {
         path: 'demo',
         loadChildren: './demo/demo.module#DemoModule',
       },
@@ -34,8 +39,12 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: '404',
+    component: PageNotFoundComponent
+  },
+  {
     path: '**',
-    redirectTo: 'login'
+    redirectTo: '404'
   }
 ];
 

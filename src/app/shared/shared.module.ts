@@ -40,6 +40,7 @@ import { DialogModule } from 'primeng/dialog';
 import { MenuComponent } from './layout/menu/menu.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { SubmenuComponent } from './layout/submenu/submenu.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -84,6 +85,7 @@ import { SubmenuComponent } from './layout/submenu/submenu.component';
     MenuComponent,
     SidebarComponent,
     SubmenuComponent,
+    PageNotFoundComponent,
   ],
   exports: [
     CommonModule,
@@ -122,6 +124,7 @@ import { SubmenuComponent } from './layout/submenu/submenu.component';
     BlockUIModule,
     SubmenuComponent,
     TableModule,
+    PageNotFoundComponent,
   ]
 })
 export class SharedModule { }

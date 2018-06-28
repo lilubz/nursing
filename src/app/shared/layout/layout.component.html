@@ -1,6 +1,6 @@
 <wit-header></wit-header>
-<wit-menu></wit-menu>
-<wit-sidebar></wit-sidebar>
+<wit-menu [mainMenu]="mainMenu" (mainMenuClick)="onMainMenuClick($event)"></wit-menu>
+<wit-sidebar [sideMenu]="sideMenu"></wit-sidebar>
 <div class="main left">
   <!-- <wit-submenu></wit-submenu> -->
   <router-outlet></router-outlet>

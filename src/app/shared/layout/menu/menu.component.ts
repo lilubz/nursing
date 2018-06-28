@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'wit-menu',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
+  @Input() mainMenu;
+  @Output() mainMenuClick: EventEmitter<any> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  clickMenu(currentMenu) {
+    this.mainMenuClick.emit(currentMenu);
   }
 
 }

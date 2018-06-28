@@ -1,5 +1,5 @@
 
-const URL = '/wenZhouGas/';
+const URL = '/';
 export const API = {
   // 项目地址
   'url': URL,
@@ -9,4 +9,7 @@ export const API = {
   'signIn': URL + 'sysUserPermissions/user/login.do',
   'signUp': URL + 'sysUserPermissions/login.do',
   'logout': URL + 'sysUserPermissions/user/logout.do',
+
+  // 登录
+  'getPermissions': URL + 'sysSetting/sysPermission/getPermissions.do',
 };

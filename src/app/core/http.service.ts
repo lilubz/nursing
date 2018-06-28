@@ -6,6 +6,7 @@ import { UserStateService } from './userState.service';
 import { LoadingService } from './loading.service';
 import { MessageService } from 'primeng/components/common/messageservice';
 import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class HttpService {
@@ -31,7 +32,8 @@ export class HttpService {
           this.setLoading(false, loadingSelector);
           this.handleError(error);
         },
-    );
+      )
+      .map(res => JSON.parse(res['_body']));
   }
 
   // 重封装post请求，参数序列化
