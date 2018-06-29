@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'wit-submenu',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./submenu.component.scss']
 })
 export class SubmenuComponent implements OnInit {
-
+  @Input() subMenu;
   constructor() { }
 
   ngOnInit() {

@@ -9,6 +9,7 @@ import { UserStateService } from './userState.service';
 import { Util } from './util';
 import { ConfirmationService } from 'primeng/primeng';
 import { LoadingService } from './loading.service';
+import { PermissionService } from './permission.service';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { LoadingService } from './loading.service';
     MessageService,
     UserStateService,
     Util,
-    LoadingService
+    LoadingService,
+    PermissionService,
   ]
 })
 export class CoreModule {

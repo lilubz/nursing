@@ -12,7 +12,7 @@ export class LoadingService {
   }
 
   hide() {
-    this.loadingSource.next({ showLoading: false});
+    this.loadingSource.next({ showLoading: false });
   }
 
 }

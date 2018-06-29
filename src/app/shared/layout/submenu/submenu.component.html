@@ -1,7 +1,3 @@
-<ul class="clear-fix">
-  <li>基本信息<i></i></li>
-  <li>评估管理<i></i></li>
-  <li class="active">入住管理<i></i></li>
-  <li>外出登记<i></i></li>
-  <li>探视来访<i></i></li>
+<ul class="clear-fix" *ngIf="subMenu.length">
+  <li *ngFor="let item of subMenu" [routerLink]="[item.routerLink]" routerLinkActive="active">{{item.pageName}}<i></i></li>
 </ul>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { routerTree } from '../../common/routerTree';
+import { PermissionService } from '../../core/permission.service';
 
 @Component({
   selector: 'wit-layout',
@@ -7,18 +7,24 @@ import { routerTree } from '../../common/routerTree';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
-  routerTree = routerTree;
   mainMenu = [];
   sideMenu = [];
+  subMenu = [];
 
-  constructor() { }
+  constructor(
+    private permissionService: PermissionService
+  ) { }
 
   ngOnInit() {
-    this.mainMenu = this.routerTree;
+    this.mainMenu = this.permissionService.mainMenu;
+    this.sideMenu = this.permissionService.sideMenu;
+    this.subMenu = this.permissionService.subMenu;
+    this.permissionService.menuObserver.subscribe(
+      next => {
+        this.mainMenu = next['mainMenu'];
+        this.sideMenu = next['sideMenu'];
+        this.subMenu = next['subMenu'];
+      }
+    );
   }
-
-  onMainMenuClick(event) {
-    this.sideMenu = event.children;
-  }
-
 }

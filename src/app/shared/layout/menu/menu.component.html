@@ -1,7 +1,7 @@
 
 <div class="menu clear-fix">
   <ul>
-    <li class="left pointer" *ngFor="let item of mainMenu" [routerLink]="[item.routerLink]" (click)="clickMenu(item);"
+    <li class="left pointer" *ngFor="let item of mainMenu" [routerLink]="[item.routerLink]"
      routerLinkActive="active">{{item.pageName}}</li>
   </ul>
 </div>
