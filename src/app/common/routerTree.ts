@@ -62,7 +62,7 @@ export const routerTree = [
       {
         pageName: '护理费用',
         pageID: 1,
-        routerLink: '/archive/costs',
+        routerLink: '/archive/cost',
         children: []
       },
       {
@@ -231,5 +231,24 @@ export const routerTree = [
     pageID: 1,
     routerLink: '/statistic',
     children: null
+  },
+  {
+    pageName: 'demo',
+    pageID: 1,
+    routerLink: '/demo',
+    children: [
+      {
+        pageName: 'table',
+        pageID: 1,
+        routerLink: '/demo/table',
+        children: []
+      },
+      {
+        pageName: 'tree',
+        pageID: 1,
+        routerLink: '/demo/tree',
+        children: []
+      },
+    ]
   },
 ];

@@ -1,39 +1,45 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PersonComponent } from './person.component';
-import { AgedComponent } from './aged/aged.component';
-import { BasicComponent } from './aged/basic/basic.component';
 
 const routes: Routes = [
+
   {
     path: '',
-    data: {
-      title: '基础档案'
-    },
+    redirectTo: 'reception',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
     component: PersonComponent,
     children: [
       {
-        path: 'aged',
-        component: AgedComponent,
-        data: {
-          title: '老人管理'
-        },
-        children: [
-          {
-            path: 'basic',
-            component: BasicComponent,
-            data: {
-              title: '基本信息'
-            }
-          }
-        ]
-      }
+        path: 'reception',
+        loadChildren: './reception/reception.module#ReceptionModule',
+      },
+      {
+        path: 'older',
+        loadChildren: './older/older.module#OlderModule',
+      },
+      {
+        path: 'nursing',
+        loadChildren: './nursing/nursing.module#NursingModule',
+      },
+      {
+        path: 'health',
+        loadChildren: './health/health.module#HealthModule',
+      },
+      {
+        path: 'medication',
+        loadChildren: './medication/medication.module#MedicationModule',
+      },
     ]
   },
   {
     path: '**',
-    component: PersonComponent
+    redirectTo: 'person/reception'
   }
+
 ];
 
 @NgModule({

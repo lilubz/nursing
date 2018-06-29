@@ -1,15 +1,14 @@
 @import "../../../../scss/variable";
-
-ul{
+ul {
   box-sizing: border-box;
-  background-color:#f3f3f3;
-  margin:0;
+  background-color: #f3f3f3;
+  margin: 0;
   padding: 10px 0 0 0;
   height: 48px;
   list-style: none;
   border-bottom: 2px solid $primary-color;
-  box-shadow: 10px 0px 0px 0px #f3f3f3,-10px 0px 0px 0px #f3f3f3;
-  li{
+  box-shadow: 10px 0px 0px 0px #f3f3f3, -10px 0px 0px 0px #f3f3f3;
+  li {
     float: left;
     line-height: 36px;
     font-size: 16px;
@@ -17,9 +16,9 @@ ul{
     cursor: pointer;
     position: relative;
   }
-  li.active{
+  .active {
     color: $secondary-color;
-    i{
+    i {
       position: absolute;
       left: calc(50% - 3px);
       bottom: -1px;

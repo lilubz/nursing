@@ -16,10 +16,10 @@
       border-radius: 15px;
       cursor: pointer;
     }
-    li:first-child{
+    &:first-child{
       margin-top: 20px;
     }
-    li.active{
+    .active{
       background-color: $primary-color;
       color: white;
     }

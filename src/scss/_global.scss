@@ -104,6 +104,11 @@ body {
   padding: 20px;
 }
 
+.ui-widget {
+  font-family: "Microsoft YaHei";
+  font-size: 1em; // 改变primeNG中的字体样式
+}
+
 // 表单文字
 .search-label {
   width: 90px;
@@ -166,45 +171,52 @@ body {
 
 .ui-table .ui-table-thead>tr>th,
 .ui-table .ui-table-tfoot>tr>td {
-  background: #0d87e5;
+  background: $primary-color;
   border-color: #d9d9d9;
   font-weight: normal;
   color: white;
   height: 34px;
+  max-height: 34px;
 }
 
 .ui-table .ui-table-thead>tr>th,
 .ui-table .ui-table-tbody>tr>td,
 .ui-table .ui-table-tfoot>tr>td {
   padding: 0;
+  border: 1px solid #adddf3;
+  overflow: hidden;
+  white-space: nowrap;
+  word-break: keep-all;
+  text-overflow: ellipsis;
 }
 
 .ui-table .ui-table-tbody>tr {
   height: 34px;
+  max-height: 34px;
   text-align: center;
   word-wrap: break-word;
 }
 
 // 提示框颜色
-.ui-growl-item-container.ui-state-highlight.ui-growl-message-success {
-  background-color: $success-color;
-  border-color: $success-color;
-}
+// .ui-growl-item-container.ui-state-highlight.ui-growl-message-success {
+//   background-color: $success-color;
+//   border-color: $success-color;
+// }
 
-.ui-growl-item-container.ui-state-highlight.ui-growl-message-info {
-  background-color: $info-color;
-  border-color: $info-color;
-}
+// .ui-growl-item-container.ui-state-highlight.ui-growl-message-info {
+//   background-color: $info-color;
+//   border-color: $info-color;
+// }
 
-.ui-growl-item-container.ui-state-highlight.ui-growl-message-warn {
-  background-color: $warning-color;
-  border-color: $warning-color;
-}
+// .ui-growl-item-container.ui-state-highlight.ui-growl-message-warn {
+//   background-color: $warning-color;
+//   border-color: $warning-color;
+// }
 
-.ui-growl-item-container.ui-state-highlight.ui-growl-message-error {
-  background-color: $error-color;
-  border-color: $error-color;
-}
+// .ui-growl-item-container.ui-state-highlight.ui-growl-message-error {
+//   background-color: $error-color;
+//   border-color: $error-color;
+// }
 
 // 超链接 a
 a {
@@ -219,7 +231,12 @@ a.router-link {
 a.router-link-active {
   color: $primary-color;
 }
-
+// li的focus样式
+li{
+  &:focus {
+    outline: -webkit-focus-ring-color auto 0px;
+  }
+}
 // webkit滚动条样式
 ::-webkit-scrollbar {
   width: 8px;

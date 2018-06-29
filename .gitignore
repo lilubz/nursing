@@ -33,6 +33,7 @@
 npm-debug.log
 yarn-error.log
 testem.log
+yarn.lock
 /typings
 
 # e2e
@@ -42,5 +43,11 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+<<<<<<< HEAD
+
+# yarn
+yarn.lock
+=======
 # yark
 /yark.lock
+>>>>>>> origin/dev

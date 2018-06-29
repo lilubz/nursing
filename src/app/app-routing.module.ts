@@ -21,6 +21,14 @@ const routes: Routes = [
         loadChildren: './person/person.module#PersonModule',
       },
       {
+        path: 'archive',
+        loadChildren: './archive/archive.module#ArchiveModule',
+      },
+      {
+        path: 'store',
+        loadChildren: './store/store.module#StoreModule', 
+      },
+      {
         path: 'system',
         loadChildren: './system/system.module#SystemModule',
       },
