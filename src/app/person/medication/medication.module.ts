@@ -2,6 +2,10 @@ import { NgModule, } from '@angular/core';
 import { MedicationComponent } from './medication.component';
 import { MedicationRoutingModule, } from './medication.routing';
 import { RegisterComponent } from './register/register.component';
+import { SaveComponent } from './save/save.component';
+import { SettingComponent } from './setting/setting.component';
+import { SurplusComponent } from './surplus/surplus.component';
+import { DictionaryComponent } from './dictionary/dictionary.component';
 
 // TODO: import components and services
 // import { DemoComponent } from './demo/demo.component';
@@ -11,6 +15,10 @@ import { RegisterComponent } from './register/register.component';
     declarations: [
         MedicationComponent,
         RegisterComponent,
+        SaveComponent,
+        SettingComponent,
+        SurplusComponent,
+        DictionaryComponent,
         // TODO: add components
         // DemoComponent
     ],

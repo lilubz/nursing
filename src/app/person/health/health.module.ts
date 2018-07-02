@@ -2,6 +2,10 @@ import { NgModule, } from '@angular/core';
 import { HealthComponent } from './health.component';
 import { HealthRoutingModule, } from './health.routing';
 import { MedicalComponent } from './medical/medical.component';
+import { EvaluationComponent } from './evaluation/evaluation.component';
+import { RecordComponent } from './record/record.component';
+import { DailyComponent } from './daily/daily.component';
+import { InputComponent } from './input/input.component';
 
 // TODO: import components and services
 // import { DemoComponent } from './demo/demo.component';
@@ -11,6 +15,10 @@ import { MedicalComponent } from './medical/medical.component';
     declarations: [
         HealthComponent,
         MedicalComponent,
+        EvaluationComponent,
+        RecordComponent,
+        DailyComponent,
+        InputComponent,
         // TODO: add components
         // DemoComponent
     ],

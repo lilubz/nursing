@@ -2,6 +2,12 @@ import { NgModule, } from '@angular/core';
 import { NursingComponent } from './nursing.component';
 import { NursingRoutingModule, } from './nursing.routing';
 import { LevelComponent } from './level/level.component';
+import { TypeComponent } from './type/type.component';
+import { SetComponent } from './set/set.component';
+import { CarerComponent } from './carer/carer.component';
+import { TaskComponent } from './task/task.component';
+import { RecordComponent } from './record/record.component';
+import { ChangeComponent } from './change/change.component';
 
 // TODO: import components and services
 // import { DemoComponent } from './demo/demo.component';
@@ -11,6 +17,12 @@ import { LevelComponent } from './level/level.component';
     declarations: [
         NursingComponent,
         LevelComponent,
+        TypeComponent,
+        SetComponent,
+        CarerComponent,
+        TaskComponent,
+        RecordComponent,
+        ChangeComponent,
         // TODO: add components
         // DemoComponent
     ],

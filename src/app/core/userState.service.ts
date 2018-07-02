@@ -1,54 +1,79 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http, ResponseContentType } from '@angular/http';
-import { Router } from '@angular/router';
+import { Base64 } from 'js-base64';
 
-import 'rxjs/add/operator/toPromise';
-
-
-/**
- * 用户信息服务
- * 2018-01-24 11:26:53
- * @author hzb
- * @export
- * @class UserStateService
- */
 @Injectable()
 export class UserStateService {
-  private user;
+  private _user = null;
+  private _keepUsername = false;
+  private _keepPassword = false;
+  private _username = '';
+  private _password = '';
 
-  /**
-   * 设置用户信息
-   * 2018-01-24 11:28:34
-   * @author hzb
-   * @param {User} user
-   * @memberof UserStateService
-   */
-  setUser(user) {
-    if (user) {
-      sessionStorage.setItem('user', JSON.stringify(user));
-      this.user = user;
-    } else {
-      this.user = null;
-    }
+
+  // 设置和读取【当前登录用户】的状态
+  set user(value) {
+    this._user = value || null;
+  }
+  get user() {
+    return this._user || null;
   }
 
-  /**
-   * 获取用户信息
-   * 2018-01-24 11:28:51
-   * @author hzb
-   * @returns {(User | null)}
-   * @memberof UserStateService
-   */
-  getUser() {
-    if (!this.user) {
-      const user = sessionStorage.getItem('user');
-      if (user !== 'undefined' && user !== 'null' && user !== '') {
-        this.user = JSON.parse(user);
-      } else {
-        this.user = null;
-      }
+
+  // 设置和读取【当前登录用户】的用户名
+  set username(value) {
+    if (this.keepUsername) {
+      localStorage.setItem('username', value);
+      this._username = value;
+    } else {
+      localStorage.setItem('username', '');
+      this._username = '';
     }
-    return this.user || null;
+  }
+  get username() {
+    this._username = localStorage.getItem('username') || '';
+    return this._username;
+  }
+
+
+  // 设置和读取【当前登录用户】的密码 (包含加密和解密)
+  set password(value) {
+    if (this.keepPassword) {
+      localStorage.setItem('password', Base64.encode(value));
+      this._password = Base64.encode(value);
+    } else {
+      localStorage.setItem('password', Base64.encode(''));
+      this._password = Base64.encode('');
+    }
+  }
+  get password() {
+    this._password = localStorage.getItem('password');
+    return Base64.decode(this._password) || '';
+  }
+
+
+    // 设置和读取【记住用户名】按纽的状态
+  set keepUsername(value) {
+    if (typeof value === 'boolean') {
+      localStorage.setItem('keepUsername', JSON.stringify(value));
+      this._keepUsername = value;
+    }
+  }
+  get keepUsername(): boolean {
+    this.keepUsername = localStorage.getItem('keepUsername') === 'true' ? true : false;
+    return this._keepUsername;
+  }
+
+
+  // 设置和读取【记住密码】按纽的状态
+  set keepPassword(value) {
+    if (typeof value === 'boolean') {
+      localStorage.setItem('keepPassword', JSON.stringify(value));
+      this._keepPassword = value;
+    }
+  }
+  get keepPassword(): boolean {
+    this.keepPassword = localStorage.getItem('keepPassword') === 'true' ? true : false;
+    return this._keepPassword;
   }
 
 }

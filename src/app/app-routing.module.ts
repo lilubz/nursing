@@ -4,7 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { LayoutComponent } from './shared/layout/layout.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
-
+import { AuthGuard } from './core/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -15,6 +15,7 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
+    canActivateChild: [AuthGuard],
     children: [
       {
         path: 'person',
@@ -26,7 +27,11 @@ const routes: Routes = [
       },
       {
         path: 'store',
-        loadChildren: './store/store.module#StoreModule', 
+        loadChildren: './store/store.module#StoreModule',
+      },
+      {
+        path: 'money',
+        loadChildren: './money/money.module#MoneyModule',
       },
       {
         path: 'system',

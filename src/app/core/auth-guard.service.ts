@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
   constructor(
     private router: Router,
-    private userStateService: UserStateService
+    private userStateService: UserStateService,
   ) { }
 
   /**
@@ -27,10 +27,6 @@ export class AuthGuard implements CanActivate, CanActivateChild {
    * @memberof AuthGuard
    */
   canActivate(route?: ActivatedRouteSnapshot, state?: RouterStateSnapshot): boolean {
-    if (!this.userStateService.getUser()) {
-      this.router.navigate(['/login']);
-      return false;
-    }
     return true;
   }
 
@@ -44,10 +40,6 @@ export class AuthGuard implements CanActivate, CanActivateChild {
    * @memberof AuthGuard
    */
   canActivateChild(route?: ActivatedRouteSnapshot, state?: RouterStateSnapshot): boolean {
-    if (!this.userStateService.getUser()) {
-      this.router.navigate(['/login']);
-      return false;
-    }
     return true;
   }
 }

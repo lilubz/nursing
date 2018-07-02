@@ -37,6 +37,14 @@
       line-height: 100px;
       color: #000;
     }
+    .form-group{
+      position: relative;
+    }
+    .verificationCode{
+      position: absolute;
+      right: 0;
+      top: 40px;
+    }
     input{
       box-sizing: border-box;
       font-size: 20px;

@@ -2,6 +2,12 @@ import { NgModule, } from '@angular/core';
 import { ReceptionComponent } from './reception.component';
 import { ReceptionRoutingModule, } from './reception.routing';
 import { ConsultComponent } from './consult/consult.component';
+import { VisitComponent } from './visit/visit.component';
+import { OrderComponent } from './order/order.component';
+import { TryInComponent } from './try-in/try-in.component';
+import { CheckInComponent } from './check-in/check-in.component';
+import { CheckOutComponent } from './check-out/check-out.component';
+import { BedComponent } from './bed/bed.component';
 
 // TODO: import components and services
 // import { DemoComponent } from './demo/demo.component';
@@ -11,6 +17,12 @@ import { ConsultComponent } from './consult/consult.component';
     declarations: [
         ReceptionComponent,
         ConsultComponent,
+        VisitComponent,
+        OrderComponent,
+        TryInComponent,
+        CheckInComponent,
+        CheckOutComponent,
+        BedComponent,
         // TODO: add components
         // DemoComponent
     ],
