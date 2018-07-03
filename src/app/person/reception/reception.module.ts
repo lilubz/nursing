@@ -8,31 +8,33 @@ import { TryInComponent } from './try-in/try-in.component';
 import { CheckInComponent } from './check-in/check-in.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { BedComponent } from './bed/bed.component';
+import { SharedModule } from '../../shared/shared.module';
 
 // TODO: import components and services
 // import { DemoComponent } from './demo/demo.component';
 // import { DemoService } from './demo/demo.service';
 
 @NgModule({
-    declarations: [
-        ReceptionComponent,
-        ConsultComponent,
-        VisitComponent,
-        OrderComponent,
-        TryInComponent,
-        CheckInComponent,
-        CheckOutComponent,
-        BedComponent,
-        // TODO: add components
-        // DemoComponent
-    ],
-    imports: [
-        ReceptionRoutingModule,
-    ],
-    providers: [
-        // TODO: and services
-        // DemoService
-    ]
+  declarations: [
+    ReceptionComponent,
+    ConsultComponent,
+    VisitComponent,
+    OrderComponent,
+    TryInComponent,
+    CheckInComponent,
+    CheckOutComponent,
+    BedComponent,
+    // TODO: add components
+    // DemoComponent
+  ],
+  imports: [
+    SharedModule,
+    ReceptionRoutingModule,
+  ],
+  providers: [
+    // TODO: and services
+    // DemoService
+  ]
 })
 export class ReceptionModule { }
 

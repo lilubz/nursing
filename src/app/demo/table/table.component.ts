@@ -46,8 +46,6 @@ export class TableComponent implements OnInit {
 
   onPageChange(event) {
     this.loading = true;
-    console.log(event.rows);
-    console.log(event.first);
     
     setTimeout(() => {
         // this.cars = this.datasource.slice(event.first, (event.first + event.rows));

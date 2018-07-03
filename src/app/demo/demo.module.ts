@@ -5,6 +5,7 @@ import { TableComponent } from './table/table.component';
 import { DemoRoutingModule } from './demo-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { TreeComponent } from './tree/tree.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { TreeComponent } from './tree/tree.component';
     DemoComponent,
     TableComponent,
     TreeComponent,
+    DialogComponent,
   ]
 })
 export class DemoModule { }

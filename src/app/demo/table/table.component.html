@@ -7,12 +7,13 @@
   <button pButton type="button" label="按钮" class="btn-Warning"></button>
   <a href="javascript:void(0);" [routerLink]="['/login']" class="router-link">超链接</a>
   <br>
-  <input maxlength="250" class="textInput" type="text" pInputText placeholder="input">
+  <input maxlength="250" class="textInput" type="text" pTooltip="Enter your username" tooltipPosition="top" pInputText placeholder="input">
   <br>
   <br>
   <br>
-  <p-table [columns]="cols" [value]="cars" [(selection)]="selectedCar1" (onLazyLoad)="onPageChange($event)" [paginator]="true" [rows]="10" [totalRecords]="20"
-    [rowsPerPageOptions]="[10,20,30]" [loading]="loading" loadingIcon="fa-spinner fa-pulse fa-4x fa-fw" [lazy]="true" [scrollable]="false">
+  <p-table [columns]="cols" [value]="cars" [(selection)]="selectedCar1" (onLazyLoad)="onPageChange($event)" [paginator]="true"
+    [rows]="10" [totalRecords]="20" [rowsPerPageOptions]="[10,20,30]" [loading]="loading" loadingIcon="fa-spinner fa-pulse fa-4x fa-fw"
+    [lazy]="true" [scrollable]="false">
 
 
     <ng-template pTemplate="header" let-columns>
@@ -29,14 +30,13 @@
         </th>
       </tr>
     </ng-template>
-
-    <ng-template pTemplate="body" let-car let-index="rowIndex">
+    <ng-template pTemplate="body"   let-car let-index="rowIndex">
       <tr>
         <td>
           <p-tableCheckbox [value]="car"></p-tableCheckbox>
         </td>
         <td>{{index+1}}</td>
-        <td>{{car.vin}}</td>
+        <td pTooltip="{{car.vin}}" tooltipPosition="right">{{car.vin}}</td>
         <td>{{car.year}}</td>
         <td>{{car.brand}}</td>
         <td>{{car.color}}</td>
@@ -45,12 +45,16 @@
         <td>{{car.brand}}</td>
         <td>{{car.color}}</td>
         <td style="width: 140px">
-          <div style="display: inline-block">
-            <button type="button" pButton label="删除" class="btn-Success "></button>
-          </div>
-          <div style="display: inline-block">
-            <button type="button" pButton label="编辑" class="btn-Warning "></button>
-          </div>
+          <!-- <div style="display: inline-block"> -->
+            <a href="javascript:void(0);">超链接</a>
+            <!-- <button type="button" pButton label="删除" class="btn-Success "></button> -->
+          <!-- </div> -->
+          <!-- <div style="display: inline-block"> -->
+              <a href="javascript:void(0);">超链接</a>
+              <a href="javascript:void(0);">超链接</a>
+              <a href="javascript:void(0);">超链接</a>
+            <!-- <button type="button" pButton label="编辑" class="btn-Warning "></button> -->
+          <!-- </div> -->
         </td>
       </tr>
     </ng-template>
@@ -66,13 +70,13 @@
     <!-- <ng-template pTemplate="summary">
       There are {{cars?.length}} cars
     </ng-template> -->
-    <ng-template pTemplate="summary">
+    <!-- <ng-template pTemplate="summary">
       <ul>
         <li *ngFor="let car of selectedCar1" style="text-align: left">
           {{car.vin + ' - ' + car.brand + ' - ' + car.year + ' - ' + car.color}}
         </li>
       </ul>
-    </ng-template>
+    </ng-template> -->
     <ng-template pTemplate="emptymessage" let-columns>
       <tr>
         <td [attr.colspan]="columns.length">
@@ -80,14 +84,16 @@
         </td>
       </tr>
     </ng-template>
-
-    <ng-template pTemplate="paginatorleft" let-state>
+    <ng-template pTemplate="paginatorright">
+      共 {{ totalRecords|| 0 }} 条记录
+    </ng-template>
+    <!-- <ng-template pTemplate="paginatorleft" let-state>
       {{state.first}}
       <button type="button" pButton icon="fa-refresh"></button>
-    </ng-template>
-    <ng-template pTemplate="paginatorright">
+    </ng-template> -->
+    <!-- <ng-template pTemplate="paginatorright">
       <button type="button" pButton icon="fa-cloud-upload"></button>
-    </ng-template>
+    </ng-template> -->
 
   </p-table>
 </div>

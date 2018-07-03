@@ -1,0 +1,51 @@
+@mixin switchBtn($bg-color:green) {
+  width: 114px;
+  height: 30px;
+  background-color: $bg-color;
+  text-align: center;
+  line-height: 30px;
+  position: relative;
+}
+
+@mixin triangle-right {
+  &:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 15px solid #fff;
+    border-left: 12px solid transparent;
+    border-bottom: 15px solid #fff;
+    border-left: 12px solid transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+@mixin triangle-left {
+  &:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 12px solid white;
+    position: absolute;
+    left: 0;
+  }
+}
+
+.triangle {
+  @include switchBtn();
+  @include triangle-left();
+  @include triangle-right();
+  float: left;
+}
+
+.triangle-right {
+  @include switchBtn(#ed7e0e);
+  @include triangle-right();
+  float: left;
+}

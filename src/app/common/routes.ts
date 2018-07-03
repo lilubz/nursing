@@ -423,4 +423,29 @@ export const ROUTES = [
     routerLink: '/statistic',
     children: null
   },
+  // {
+  //   pageName: 'demo',
+  //   pageId: 1,
+  //   routerLink: '/demo',
+  //   children: [
+  //     {
+  //       pageName: 'table',
+  //       pageId: 1,
+  //       routerLink: '/demo/table',
+  //       children: null
+  //     },
+  //     {
+  //       pageName: 'tree',
+  //       pageId: 1,
+  //       routerLink: '/demo/tree',
+  //       children: null
+  //     },
+  //     {
+  //       pageName: 'dialog',
+  //       pageId: 1,
+  //       routerLink: '/demo/dialog',
+  //       children: null
+  //     },
+  //   ]
+  // },
 ];
