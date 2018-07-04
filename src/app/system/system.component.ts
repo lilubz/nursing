@@ -13,10 +13,6 @@ export class SystemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._service.getPermissions({}).subscribe(res => {
-      console.log(res);
-    },
-    error => console.log('error:', error));
   }
 
 }

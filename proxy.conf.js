@@ -1,4 +1,4 @@
-console.log('proxy');
+
 const PROXY_CONFIG = [
   // {
   //   context: [
@@ -15,7 +15,7 @@ const PROXY_CONFIG = [
     context: [
       "/"
     ],
-    target: "http://192.168.1.145:8082",// 喜孩
+    target: "http://192.168.1.127:8080",// 喜孩
     secure: false,
     "pathRewrite": {
       "^/": "/"

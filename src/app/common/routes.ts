@@ -407,7 +407,21 @@ export const ROUTES = [
         pageName: '权限设置',
         pageId: 1,
         routerLink: '/system/permission',
-        children: null
+        notMenu: true,
+        children: [
+          {
+            pageName: '权限列表',
+            pageId: 1,
+            routerLink: '/system/permission/list',
+            children: null
+          },
+          {
+            pageName: '权限详情',
+            pageId: 1,
+            routerLink: '/system/permission/detail',
+            children: null
+          }
+        ]
       },
       {
         pageName: '操作日志',
