@@ -4,8 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { SystemComponent } from './system.component';
 import { AccountComponent } from './account/account.component';
 import { PersonalComponent } from './personal/personal.component';
-import { PermissionComponent } from './permission/permission.component';
 import { LogComponent } from './log/log.component';
+import { PermissionListComponent } from './permission/permission-list/permission-list.component';
+import { PermissionDetailComponent } from './permission/permission-detail/permission-detail.component';
 
 
 const routes: Routes = [
@@ -37,10 +38,27 @@ const routes: Routes = [
       },
       {
         path: 'permission',
-        component: PermissionComponent,
-        data: {
-          title: '权限设置'
-        }
+        children: [
+          {
+            path: '',
+            redirectTo: 'list',
+            pathMatch: 'full',
+          },
+          {
+            path: 'list',
+            component: PermissionListComponent,
+            data: {
+              title: '权限设置'
+            }
+          },
+          {
+            path: 'detail',
+            component: PermissionDetailComponent,
+            data: {
+              title: '权限详情'
+            }
+          }
+        ]
       },
       {
         path: 'log',

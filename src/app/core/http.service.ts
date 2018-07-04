@@ -22,10 +22,11 @@ export class HttpService {
 
   // 重封装get请求
   getRequest = (url, data, loadingSelector?) => {
+    this.setLoading(true, loadingSelector);
     return this.http.get(url + '?' + this.transformRequest(data) + '&' + 't=' + new Date().getTime())
       .do(
         res => {
-          this.setLoading(true, loadingSelector);
+          this.setLoading(false, loadingSelector);
           // this.httpStatusFilter(res);
         },
         error => {
@@ -37,7 +38,7 @@ export class HttpService {
   }
 
   // 重封装post请求，参数序列化
-  formPostRequest = (url, data, loadingSelector) => {
+  formPostRequest = (url, data, loadingSelector?) => {
     this.setLoading(true, loadingSelector);
     return this.http
       .post(url, this.transformRequest(data), { headers: this.formHeaders })
@@ -50,7 +51,8 @@ export class HttpService {
           this.setLoading(false, loadingSelector);
           this.handleError(error);
         },
-    );
+      )
+      .map(res => JSON.parse(res['_body']));
   }
 
   // 重封装post请求，不修改content-type请求头
@@ -66,7 +68,8 @@ export class HttpService {
           this.setLoading(false, loadingSelector);
           this.handleError(error);
         },
-    );
+      )
+      .map(res => JSON.parse(res['_body']));
   }
 
   transformRequest(obj) {
@@ -80,7 +83,7 @@ export class HttpService {
   }
 
   private handleError(error: any): void {
-    this.messageService.add({ severity: 'error', summary: error.status, detail: error.statusText });
+    this.messageService.add({ severity: 'error', summary: error.status || '数据请求失败', detail: error.statusText});
   }
 
 

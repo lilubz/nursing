@@ -4,6 +4,7 @@ import { Subject } from 'rxjs/Subject';
 import { ROUTES } from '../common/routes';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/mergeMap';
+import { LoadingService } from './loading.service';
 
 @Injectable()
 export class PermissionService implements OnInit {
@@ -20,6 +21,7 @@ export class PermissionService implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private loadingService: LoadingService
   ) { }
 
 
@@ -38,6 +40,7 @@ export class PermissionService implements OnInit {
       .do(next => {
         const url = next['urlAfterRedirects'];
         this.currentRouterLink = url.split('?')[0];
+        this.loadingService.hide();
       })
       .map(() => this.activatedRoute)
       .map(route => {
@@ -64,7 +67,8 @@ export class PermissionService implements OnInit {
       pageId: data.pageId,
       routerLink: data.routerLink,
       children: null,
-      parent: parent
+      parent: parent,
+      notMenu: data.notMenu || false,
     };
     if (data.children) {
       const arr = [];
@@ -87,7 +91,7 @@ export class PermissionService implements OnInit {
         currentLocation = currentLocation.parent;
       }
       this.sideMenu = menuArr[0] ? menuArr[0].children : [];
-      this.subMenu = menuArr[1] ? menuArr[1].children : [];
+      this.subMenu = menuArr[1] && (!menuArr[1].notMenu) ? menuArr[1].children : [];
     }
   }
 }

@@ -13,6 +13,11 @@ const routes: Routes = [
     component: DemoComponent,
     children: [
       {
+        path: '',
+        redirectTo: 'table',
+        pathMatch: 'full'
+      },
+      {
         path: 'table',
         component: TableComponent,
         data: {

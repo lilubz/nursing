@@ -10,7 +10,5 @@ export class CommonRequestService {
     private httpService: HttpService,
   ) { }
 
-  signIn(params: any, loadingSelector?): Observable<any> {
-    return this.httpService.formPostRequest('' + API.signIn, params, loadingSelector);
-  }
+  
 }

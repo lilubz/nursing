@@ -35,7 +35,7 @@ export class LoadingComponent implements OnInit {
     const parent = document.querySelector(opt.parent);
     const div = this.renderer2.createElement('div');
     this.renderer2.addClass(div, 'loading-box');
-    div.innerHTML = '<img class="loading" src="./assets/img/loading-black.gif" alt="加载中..." title="加载中...">';
+    div.innerHTML = '<i class="fa fa-spinner fa-pulse"></i>';
     this.renderer2.appendChild(parent, div);
   }
 

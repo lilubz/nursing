@@ -12,9 +12,12 @@ export class UserStateService {
 
   // 设置和读取【当前登录用户】的状态
   set user(value) {
+    sessionStorage.setItem('user', JSON.stringify(value));
     this._user = value || null;
   }
   get user() {
+    sessionStorage.getItem('user');
+    this.user = JSON.parse(sessionStorage.getItem('user'));
     return this._user || null;
   }
 

@@ -74,7 +74,7 @@ export class TableComponent implements OnInit {
           { brand: 'Fiat', 'year': 2013, color: 'Red', vin: '245t2s' }
         ];
         this.loading = false;
-    }, 1000);
+    }, 10000);
   }
   mess() {
     // this.messigeService.clear();

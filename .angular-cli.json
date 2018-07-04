@@ -60,7 +60,6 @@
       "spec": false
     },
     "serve": {
-      "proxyConfig": "proxy.conf.js"
     }
   }
 }
