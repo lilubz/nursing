@@ -1,5 +1,9 @@
-@mixin switchBtn($bg-color:green) {
-  width: 114px;
+@mixin switchBtn($bg-color:#eee) {
+  width: 13%;
+  max-width: 126px;
+  text-align: center;
+  margin-bottom: 9px;
+  color: black;
   height: 30px;
   background-color: $bg-color;
   text-align: center;
@@ -7,7 +11,7 @@
   position: relative;
 }
 
-@mixin triangle-right {
+@mixin right {
   &:after {
     content: "";
     display: block;
@@ -23,7 +27,7 @@
   }
 }
 
-@mixin triangle-left {
+@mixin left {
   &:before {
     content: "";
     display: block;
@@ -34,20 +38,32 @@
     border-left: 12px solid white;
     position: absolute;
     left: 0;
+    right: -12px;
   }
+}
+
+.triangle-left {
+  @include switchBtn(#eee);
+  @include right();
+  float: left;
+  border-radius: 5px 0 0 5px;
 }
 
 .triangle {
   @include switchBtn();
-  @include triangle-left();
-  @include triangle-right();
+  @include left();
+  @include right();
   float: left;
 }
 
 .triangle-right {
-  @include switchBtn(#ed7e0e);
-  @include triangle-right();
+  @include switchBtn(#eee);
+  @include left();
   float: left;
+  border-radius: 0px 5px 5px 0px;
 }
 
-
+.active {
+  color: #fff;
+  background-color: #2b9e2b;
+}

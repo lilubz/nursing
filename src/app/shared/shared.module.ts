@@ -33,6 +33,7 @@ import {
   TieredMenuModule,
   TooltipModule,
   ToggleButtonModule,
+  StepsModule,
 } from 'primeng/primeng';
 import { TableModule } from 'primeng/table';
 import { TreeModule } from './tree/tree';
@@ -42,6 +43,11 @@ import { MenuComponent } from './layout/menu/menu.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { SubmenuComponent } from './layout/submenu/submenu.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { BackComponent } from './back/back.component';
+import { AdmissionComponent } from './admission/admission.component';
+import { AdmissionNavbarComponent } from './admission/admission-navbar/admission-navbar.component';
+import { AdmissionOlderComponent } from './admission/admission-older/admission-older.component';
+import { AdmissionHealthComponent } from './admission/admission-health/admission-health.component';
 @NgModule({
   imports: [
     ButtonModule,
@@ -79,8 +85,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     TableModule,
     TreeModule,
     _SharedModule,
+    StepsModule,
   ],
   declarations: [
+    BackComponent,
     HeaderComponent,
     LayoutComponent,
     LoadingComponent,
@@ -88,6 +96,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     PageNotFoundComponent,
     SidebarComponent,
     SubmenuComponent,
+    AdmissionComponent,
+    AdmissionNavbarComponent,
+    AdmissionOlderComponent,
+    AdmissionHealthComponent,
   ],
   exports: [
     ButtonModule,
@@ -126,7 +138,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     TreeModule,
     TooltipModule,
     _SharedModule,
+    StepsModule,
     
+    BackComponent,
     LoadingComponent,
     PageNotFoundComponent,
   ]

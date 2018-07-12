@@ -1,0 +1,383 @@
+<div class="consult-detail">
+  <wit-back></wit-back>
+  <h2 class="text-center">
+    咨询登记表
+  </h2>
+  <div class="ui-g-12 ui-g-nopad">
+    <div class="ui-g-10 ui-g-offset-1">
+      <div class="ui-g-3 ui-xl-4">
+        <label class="search-label">接待状态：</label>
+        <p-dropdown [options]="dropdown.status" [(ngModel)]="selected" [style]="{'width':'120px'}"></p-dropdown>
+      </div>
+      <div class="ui-g-3 ui-xl-4">
+        <label class="search-label">登记时间：</label>
+        <p-calendar [monthNavigator]="true" [yearNavigator]="true" yearRange="1970:2050" [style]="{'width':'140px'}" [selectOtherMonths]="true"
+          [showButtonBar]="true" dateFormat="yy-mm-dd" [locale]="zh" [showIcon]="false" readonlyInput="true"></p-calendar>
+      </div>
+      <div class="ui-g-3 ui-xl-4">
+        <label class="search-label">经办人：</label>
+        <p-dropdown [options]="dropdown.status" [(ngModel)]="selected" [style]="{'width':'120px'}"></p-dropdown>
+      </div>
+      <div class="group ui-g-nopad ui-g-12">
+        <div class="ui-g-12  headline">
+          <span>
+            老人信息
+          </span>
+        </div>
+        <table border="1" class="table">
+          <tbody>
+            <tr>
+              <td>老人姓名</td>
+              <td>
+                <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+              </td>
+              <td>性别</td>
+              <td>
+                <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+              </td>
+              <td>民族</td>
+              <td>
+                <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+              </td>
+            </tr>
+            <tr>
+              <td>籍贯</td>
+              <td>
+                <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+              </td>
+              <td>出生日期</td>
+              <td>
+                <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+              </td>
+              <td>年龄</td>
+              <td>
+                <input maxlength="250" type="text" class="input" placeholder="4214141" pInputText required>
+              </td>
+            </tr>
+            <tr>
+              <td>身份证号</td>
+              <td>
+                <input maxlength="250" type="text" class="input" placeholder="4214141" pInputText required>
+              </td>
+              <td>联系电话</td>
+              <td>
+                <input maxlength="250" type="text" class="input" placeholder="4214141" pInputText required>
+              </td>
+              <td>医保情况</td>
+              <td class="overflow">
+                <p-dropdown [options]="dropdown.status" styleClass="tdDropdown" [(ngModel)]="selected" [style]="{'width':'100%','border':'0'}"></p-dropdown>
+              </td>
+            </tr>
+            <tr>
+              <td>是否残疾</td>
+              <td class="overflow">
+                <p-dropdown [options]="dropdown.status" styleClass="tdDropdown" [(ngModel)]="selected" [style]="{'width':'100%','border':'0'}"></p-dropdown>
+              </td>
+              <td>伤残等级</td>
+              <td class="overflow">
+                <p-dropdown [options]="dropdown.status" styleClass="tdDropdown" [(ngModel)]="selected" [style]="{'width':'100%','border':'0'}"></p-dropdown>
+              </td>
+              <td>居住情况</td>
+              <td class="overflow">
+                <p-dropdown [options]="dropdown.status" styleClass="tdDropdown" [(ngModel)]="selected" [style]="{'width':'100%','border':'0'}"></p-dropdown>
+              </td>
+            </tr>
+            <tr>
+              <td>入住原因</td>
+              <td class="overflow">
+                <p-dropdown [options]="dropdown.status" styleClass="tdDropdown" [(ngModel)]="selected" [style]="{'width':'100%','border':'0'}"></p-dropdown>
+              </td>
+              <td>家庭住址</td>
+              <td colspan="3">
+                <input maxlength="250" type="text" class="input" placeholder="4214141" pInputText required>
+              </td>
+            </tr>
+            <tr>
+              <td rowspan="2">既往病史</td>
+              <td colspan="5">老人姓名</td>
+              <!-- checkbox -->
+            </tr>
+            <tr>
+              <td colspan="5" class="bg-blue">老人姓名</td>
+              <!-- checkbox -->
+            </tr>
+            <tr>
+              <td class="bg-white">备注</td>
+              <td colspan="5" class="bg-white">
+                <input maxlength="250" type="text" class="input" placeholder="4214141" pInputText required>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="ui-g-12  headline">
+          <span>
+            咨询人信息
+          </span>
+        </div>
+        <table border="1" class="table">
+          <tbody>
+            <tr>
+              <td>咨询人姓名</td>
+              <td>
+                <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+              </td>
+              <td>与老人关系</td>
+              <td>
+                <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+              </td>
+              <td>性别</td>
+              <td>
+                <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+              </td>
+            </tr>
+            <tr>
+              <td>咨询日期</td>
+              <td>
+                <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+              </td>
+              <td>咨询方式</td>
+              <td>
+                <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+              </td>
+              <td>联系电话</td>
+              <td>
+                <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+              </td>
+            </tr>
+            <tr>
+              <td>咨询意向</td>
+              <td>
+                <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+              </td>
+              <td>媒介渠道</td>
+              <td class="overflow">
+                <p-dropdown [options]="dropdown.status" styleClass="tdDropdown" [(ngModel)]="selected" [style]="{'width':'100%','border':'0'}"></p-dropdown>
+              </td>
+              <td>咨询内容</td>
+              <td>
+                <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="ui-g-12  headline">
+          <span>
+            业务科意见
+          </span>
+        </div>
+        <table border="1" class="table">
+          <tbody>
+            <tr>
+              <td>护理级别初估</td>
+              <td colspan="2">
+                <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+              </td>
+              <td>预订房号</td>
+              <td colspan="2">
+                <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="ui-g-12  headline">
+          <span>
+            回访情况
+          </span>
+        </div>
+        <table border="1" class="table">
+          <tbody>
+            <tr>
+              <td>回访时间</td>
+              <td colspan="2">
+                <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+              </td>
+              <td>是否入住</td>
+              <td colspan="2">
+                <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+              </td>
+            </tr>
+            <tr>
+              <td>回复情况概述</td>
+              <td colspan="5">
+                <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+              </td>
+            </tr>
+            <tr>
+              <td>不入住原因</td>
+              <td colspan="5">
+                <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+              </td>
+            </tr>
+            <tr>
+              <td>其他</td>
+              <td colspan="5">
+                <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+        <div class="ui-g-12">
+          <button pButton type="button" label="保存" class="btn-Primary"></button>
+        </div>
+      </div>
+      <!-- <div class="group ui-g-nopad ui-g-12">
+        <div class="ui-g-12  headline">
+          <span>
+            老人信息
+          </span>
+        </div>
+        <div class="odd">
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+            <span class="ui-g-8 ui-g-nopad content" title="">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+            <span class="ui-g-8 ui-g-nopad content" title="所属区域">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+            <span class="ui-g-8 ui-g-nopad content" title="所属区域">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+        </div>
+        <div class="even">
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+            <span class="ui-g-8 ui-g-nopad content" title="所属区域">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+            <span class="ui-g-8 ui-g-nopad content" title="所属区域">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+            <span class="ui-g-8 ui-g-nopad content" title="所属区域">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+        </div>
+        <div class="odd">
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+            <span class="ui-g-8 ui-g-nopad content" title="">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+            <span class="ui-g-8 ui-g-nopad content" title="">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+            <span class="ui-g-8 ui-g-nopad content" title="">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+        </div>
+        <div class="even">
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+            <span class="ui-g-8 ui-g-nopad content" title="">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+            <span class="ui-g-8 ui-g-nopad content" title="">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+            <span class="ui-g-8 ui-g-nopad content" title="">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+        </div>
+        <div class="odd">
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+            <span class="ui-g-8 ui-g-nopad content" title="">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+            <span class="ui-g-8 ui-g-nopad content" title="">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+            <span class="ui-g-8 ui-g-nopad content" title="">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+        </div>
+        <div class="even">
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+            <span class="ui-g-8 ui-g-nopad content" title="">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+            <span class="ui-g-8 ui-g-nopad content" title="">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+            <span class="ui-g-8 ui-g-nopad content" title="">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+        </div>
+        <div class="even">
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+            <span class="ui-g-8 ui-g-nopad content" title="">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+            <span class="ui-g-8 ui-g-nopad content" title="所属区域">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+            <span class="ui-g-8 ui-g-nopad content" title="所属区域">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+        </div>
+        <div class="odd">
+          <div class="ui-g-4 ui-g-nopad ">
+            <span class="ui-g-4 ui-g-nopad content" title="老人姓名">老人姓名</span>
+          </div>
+          <div class="ui-g-8 ui-g-nopad ">
+            <span class="ui-g-12 ui-g-nopad content" title="">
+              <input maxlength="250" type="text" class="input" placeholder="" pInputText required>
+            </span>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>

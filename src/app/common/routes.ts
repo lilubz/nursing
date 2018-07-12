@@ -13,13 +13,88 @@ export const ROUTES = [
             pageName: '咨询登记',
             pageId: 1,
             routerLink: '/person/reception/consult',
-            children: null
+            children: [
+              {
+                pageName: '咨询登记查询',
+                pageId: 1,
+                routerLink: '/person/reception/consult/list',
+                children: null
+              },
+              {
+                pageName: '咨询登记查看',
+                pageId: 1,
+                routerLink: '/person/reception/consult/detail',
+                children: null
+              },
+              {
+                pageName: '咨询登记更改',
+                pageId: 1,
+                routerLink: '/person/reception/consult/update',
+                children: null
+              },
+              {
+                pageName: '咨询登记新增',
+                pageId: 1,
+                routerLink: '/person/reception/consult/add',
+                children: null
+              },
+              {
+                pageName: '咨询登记转入住',
+                pageId: 1,
+                routerLink: '/person/reception/consult/checkIn',
+                children: [
+                  {
+                    pageName: '老人信息',
+                    pageId: 1,
+                    routerLink: '/person/reception/consult/checkIn/older',
+                    children: null
+                  },
+                  {
+                    pageName: '老人信息',
+                    pageId: 1,
+                    routerLink: '/person/reception/consult/checkIn/list',
+                    children: null
+                  },
+                  {
+                    pageName: '老人信息',
+                    pageId: 1,
+                    routerLink: '/person/reception/consult/checkIn/health',
+                    children: null
+                  },
+                ]
+              },
+            ]
           },
           {
             pageName: '来访登记',
             pageId: 1,
             routerLink: '/person/reception/visit',
-            children: null
+            children: [
+              {
+                pageName: '来访登记列表',
+                pageId: 1,
+                routerLink: '/person/reception/visit/list',
+                children: null
+              },
+              {
+                pageName: '来访登记查看',
+                pageId: 1,
+                routerLink: '/person/reception/visit/detail',
+                children: null
+              },
+              {
+                pageName: '来访登记更改',
+                pageId: 1,
+                routerLink: '/person/reception/visit/update',
+                children: null
+              },
+              {
+                pageName: '来访登记新增',
+                pageId: 1,
+                routerLink: '/person/reception/visit/add',
+                children: null
+              },
+            ]
           },
           {
             pageName: '预约登记',

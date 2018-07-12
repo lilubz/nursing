@@ -1,0 +1,65 @@
+
+<div class="consult-list">
+  <div class="ui-g-12 ui-g-nopad padding">
+    <p-dropdown styleClass="search" [options]="dropdown.visitor" [(ngModel)]="selected" [style]="{'width':'120px'}"></p-dropdown>
+    <input maxlength="250" type="text" class="textInput" placeholder="" pInputText>
+    <label class="search-label">咨询日期：</label>
+    <p-calendar [monthNavigator]="true" [yearNavigator]="true" yearRange="1970:2050" [style]="{'width':'180px'}" [selectOtherMonths]="true"
+      [showButtonBar]="true" dateFormat="yy-mm-dd" [locale]="zh" [showIcon]="false" readonlyInput="true"></p-calendar>
+    <button pButton type="button" label="检索" class="btn-Success margin-left"></button>
+    <button pButton type="button" label="删除" (click)="delete()"  class="btn-Warning margin-left right"></button>
+    <button pButton type="button" label="新增" (click)="add()" [routerLink]="['../detail']" class="btn-Primary right"></button>
+  </div>
+  <div class="ui-g-12 ui-g-nopad padding">
+    <p-table [columns]="cols" [value]="cars" [(selection)]="selectedCar1" (onLazyLoad)="onPageChange($event)" [paginator]="true"
+      [rows]="10" [totalRecords]="20" [rowsPerPageOptions]="[10,20,30]" [loading]="loading" loadingIcon="fa-spinner fa-pulse fa-4x fa-fw"
+      [lazy]="true" [scrollable]="false">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th style="width: 2.25em">
+            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+          </th>
+          <th>序号</th>
+          <th *ngFor="let col of columns" pTooltip="{{col.header}}" tooltipPosition="right">
+            {{col.header}}
+          </th>
+          <th style="width: 150px">
+            操作
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-car let-i="rowIndex">
+        <tr>
+          <td>
+            <p-tableCheckbox [value]="car"></p-tableCheckbox>
+          </td>
+          <td>{{i+1}}</td>
+          <td pTooltip="{{car.vin}}" tooltipPosition="right">{{car.vin}}</td>
+          <td pTooltip="{{car.year}}" tooltipPosition="right">{{car.year}}</td>
+          <td pTooltip="{{car.brand}}" tooltipPosition="right">{{car.brand}}</td>
+          <td pTooltip="{{car.color}}" tooltipPosition="right">{{car.color}}</td>
+          <td pTooltip="{{car.vim}}" tooltipPosition="right">{{car.vim}}</td>
+          <td pTooltip="{{car.year}}" tooltipPosition="right">{{car.year}}</td>
+          <td pTooltip="{{car.brand}}" tooltipPosition="right">{{car.brand}}</td>
+          <td pTooltip="{{car.color}}" tooltipPosition="right">{{car.color}}</td>
+          <td style="width: 150px">
+            <a href="javascript:void(0);" (click)="queryDetail(car)" [routerLink]="['../detail']">查看</a>
+            <a href="javascript:void(0);" (click)="update(car)" [routerLink]="['../detail']">修改</a>
+            <a href="javascript:void(0);" (click)="delete(car)">删除</a>
+            <a href="javascript:void(0);" (click)="checkIn(car)" [routerLink]="['../checkIn']">转入住</a>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td [attr.colspan]="columns.length">
+            未查到数据！
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="paginatorright">
+        共 {{ totalRecords|| 0 }} 条记录
+      </ng-template>
+    </p-table>
+  </div>
+</div>

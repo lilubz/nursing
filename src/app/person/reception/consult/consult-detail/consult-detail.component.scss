@@ -1,0 +1,99 @@
+.consult-detail {
+  .headline {
+    background: #0d87e5;
+    color: #fff;
+    height: 34px;
+    span {
+      &:before {
+        content: "";
+        height: 15px;
+        width: 4px;
+        background: #fff;
+        margin-right: 10px;
+        display: inline-block;
+        vertical-align: bottom;
+      }
+    }
+  } // .group {
+  //   border-left: 1px solid #bfd8f3;
+  //   border-top: 1px solid #bfd8f3;
+  // }
+  .odd {
+    .content {
+      border-right: 1px solid #bfd8f3;
+      border-bottom: 1px solid #bfd8f3;
+      line-height: 34px;
+      height: 34px;
+      text-align: center;
+      word-break: break-all;
+      box-sizing: border-box;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .input {
+      border: 0;
+      height: 34px;
+    }
+  }
+  .even {
+    .content {
+      background: #e9f5fe;
+      border-right: 1px solid #bfd8f3;
+      border-bottom: 1px solid #bfd8f3;
+      line-height: 34px;
+      height: 34px;
+      text-align: center;
+      word-break: break-all;
+      box-sizing: border-box;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .input {
+      border: 0;
+      height: 34px;
+      background: #e9f5fe;
+    }
+  }
+  .table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+    tr {
+      height: 34px;
+      max-height: 34px;
+      text-align: center;
+      word-wrap: break-word;
+      &:nth-child(even) {
+        background-color: #e9f5fe;
+        .input {
+          border: 0;
+          height: 34px;
+          background-color: #e9f5fe;
+        }
+      }
+    }
+    td {
+      padding: 0;
+      border: 1px solid #adddf3;
+      overflow: hidden;
+      white-space: nowrap;
+      word-break: keep-all;
+      text-overflow: ellipsis;
+    }
+    .input {
+      border: 0;
+      height: 34px;
+    }
+    .bg-blue {
+      background-color: #e9f5fe;
+    }
+    .bg-white {
+      background-color: #fff;
+    }
+    .overflow {
+      overflow: visible;
+    }
+  }
+}

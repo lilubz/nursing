@@ -1,0 +1,55 @@
+<div class="admission">
+    <div class="ui-g-12 " style="margin: 0 auto;">
+      <div class="triangle-left triangle-nav" *ngIf="activeIndex>=1" [routerLink]="['/person/reception/consult/checkIn/older']" routerLinkActive="active" >
+        <span>
+          1.老人信息
+        </span>
+      </div>
+      <!-- <div class="triangle-left triangle-nav" *ngIf="!(activeIndex>=1)"  routerLinkActive="active" >
+        <span>
+          1.老人信息
+        </span>
+      </div> -->
+      <div class="triangle triangle-nav" *ngIf="activeIndex>=2"  [routerLink]="['/person/reception/consult/checkIn/list']" routerLinkActive="active" >
+        <span>
+          2.家属信息
+        </span>
+      </div>
+      <div class="triangle triangle-nav"  *ngIf="activeIndex<2">
+        <span>
+          2.家属信息
+        </span>
+      </div>
+      <div class="triangle triangle-nav" *ngIf="activeIndex>=3"  [routerLink]="['/person/reception/consult/checkIn/health']" routerLinkActive="active">
+        <span>
+          3.健康信息
+        </span>
+      </div>
+      <div class="triangle triangle-nav" *ngIf="activeIndex<3" >
+        <span>
+          3.健康信息
+        </span>
+      </div>
+      <div class="triangle triangle-nav"  >
+        <span>
+          4.护理项目
+        </span>
+      </div>
+      <div class="triangle triangle-nav"  >
+        <span>
+          5.餐饮床位
+        </span>
+      </div>
+      <div class="triangle triangle-nav"  >
+        <span>
+          6.入院缴费
+        </span>
+      </div>
+      <div class="triangle-right triangle-nav"  >
+        <span>
+          7.附件管理
+        </span>
+      </div>
+    </div>
+  </div>
+<router-outlet></router-outlet>
