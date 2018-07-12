@@ -13,12 +13,12 @@ const PROXY_CONFIG = [
   // },
   {
     context: [
-      "/"
+      "/intelligentOldAgeCare"
     ],
-    target: "http://192.168.1.127:8080",// 喜孩
+    target: "http://192.168.1.77:8801",// 喜孩
     secure: false,
     "pathRewrite": {
-      "^/": "/"
+      // "^/": "/"
     }
   },
   // {

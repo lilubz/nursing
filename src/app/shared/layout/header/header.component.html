@@ -2,7 +2,7 @@
   <img src="assets/img/logo.png" alt="logo">
   <div class="right right-box">
     <img src="assets/img/home.png" alt="主页">
-    <img src="assets/img/head.png" alt="头像">
+    <img [routerLink]="['/system/personal']" src="assets/img/head.png" alt="头像">
     <img src="assets/img/exit.png" alt="退出" (click)="logout()">
   </div>
 </header>

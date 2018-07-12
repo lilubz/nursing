@@ -1,3 +1,106 @@
-<p>
-  personal works!
-</p>
+
+<form class="personal">
+  <div class="ui-g-10 ui-g-offset-1">
+    <div class="ui-g-5">
+      <div class="form-group">
+        <label for="">员工ID:</label>
+        <input class="textInput" type="text" disabled pInputText [(ngModel)]="form.userId" name="userId">
+      </div>
+    </div>
+    <div class="ui-g-5">
+      <div class="form-group">
+        <label for="">角色:</label>
+        <input class="textInput" type="text" disabled pInputText [(ngModel)]="form.role" name="role">
+      </div>
+    </div>
+  </div>
+
+  <div class="ui-g-10 ui-g-offset-1">
+    <div class="ui-g-5">
+      <div class="form-group">
+        <label for="">昵称:</label>
+        <input class="textInput" type="text" disabled pInputText [(ngModel)]="form.nickname" name="nickname">
+      </div>
+    </div>
+    <div class="ui-g-5">
+      <div class="form-group">
+        <label for="">个性签名:</label>
+        <input class="textInput" type="text" disabled pInputText [(ngModel)]="form.sign" name="sign">
+      </div>
+    </div>
+  </div>
+
+  <div class="ui-g-10 ui-g-offset-1">
+    <div class="ui-g-5">
+      <div class="form-group">
+        <label for="">姓名:</label>
+        <input class="textInput" type="text" disabled pInputText [(ngModel)]="form.realName" name="realName">
+      </div>
+    </div>
+    <div class="ui-g-5">
+      <div class="form-group">
+        <label for="">账号状态:</label>
+        <input class="textInput" type="text" disabled pInputText [(ngModel)]="form.state" name="state">
+      </div>
+    </div>
+  </div>
+
+  <div class="ui-g-10 ui-g-offset-1">
+    <div class="ui-g-5">
+      <div class="form-group">
+        <label for="">身份证号:</label>
+        <input class="textInput" type="text" disabled pInputText [(ngModel)]="form.idCard" name="idCard">
+      </div>
+    </div>
+    <div class="ui-g-5">
+      <div class="form-group">
+        <label for="">手机号码:</label>
+        <input class="textInput" type="text" disabled pInputText [(ngModel)]="form.phone" name="phone">
+      </div>
+    </div>
+  </div>
+
+  <div class="ui-g-10 ui-g-offset-1">
+    <div class="ui-g-5">
+      <div class="form-group">
+        <label for="">密码:</label>
+        <a href="javascript:void(0);" (click)="onOpenDialog()">修改密码</a>
+      </div>
+    </div>
+    <div class="ui-g-5">
+      <div class="form-group">
+        <label for="">注册日期:</label>
+        <input class="textInput" type="text" disabled pInputText [(ngModel)]="form.registrationDate" name="registrationDate">
+      </div>
+    </div>
+  </div>
+</form>
+
+<p-dialog [(visible)]="visible" [positionTop]="90" [responsive]="true" header="修改密码" [modal]="true "
+   [width]="600" [height]="400" [contentStyle]="{ 'padding': '0'} " >
+  <form action="" (submit)="resetPassword()">
+    <div class="ui-g-12">
+      <div class="form-group ui-g-offset-2 ui-g-8">
+        <label for="">旧密码:</label>
+        <input class="textInput" type="password" pInputText [(ngModel)]="pwdForm.old" name="old">
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="form-group form-group ui-g-offset-2 ui-g-8">
+        <label for="">新密码:</label>
+        <input class="textInput" type="password" pInputText [(ngModel)]="pwdForm.new" name="new">
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="form-group form-group ui-g-offset-2 ui-g-8">
+        <label for="">确认密码:</label>
+        <input class="textInput" type="password" pInputText [(ngModel)]="pwdForm.confirmNew" name="confirmNew">
+      </div>
+    </div>
+    <div class="ui-g-12 text-center btns">
+      <button type="submit" pButton label="确认"></button>
+      <button type="button" pButton label="取消" (click)="visible = false"></button>
+    </div>
+  </form>
+</p-dialog>
+

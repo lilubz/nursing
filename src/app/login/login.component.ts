@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2, ViewChild, ElementRef } from '@angular/core';
 import { API } from '../common/api';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { LoadingService } from '../core/loading.service';
 import { LoginService } from './login.service';
 import { UserStateService } from '../core/userState.service';
 import { Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'wit-login',
@@ -21,13 +22,15 @@ export class LoginComponent implements OnInit {
     keepUsername: false,
     keepPassword: false
   };
-  verificationCodeUrl = this.api.verificationCode + `?width=116&height=58&t=${new Date().getTime()}`;
+  @ViewChild('verificationCode') verificationCode: ElementRef;
   constructor(
     private messageService: MessageService,
     private loadingService: LoadingService,
     private userStateService: UserStateService,
     private _service: LoginService,
-    private router: Router
+    private router: Router,
+    private sanitizer: DomSanitizer,
+    private renderer2: Renderer2
   ) { }
 
   ngOnInit() {
@@ -35,6 +38,7 @@ export class LoginComponent implements OnInit {
     this.formMode.keepUsername = this.userStateService.keepUsername;
     this.formMode.username = this.userStateService.username;
     this.formMode.password = this.userStateService.password;
+    this.refreshVerificationCode();
   }
 
   keepBtnChange(type: string) {
@@ -54,8 +58,9 @@ export class LoginComponent implements OnInit {
   }
 
   refreshVerificationCode() {
-    this.verificationCodeUrl = this.api.verificationCode + `?width=116&height=60&t=${new Date().getTime()}`;
-    this.formMode.verificationCode = '';
+    this._service.getVerificationCode({ width: 116, height: 58 }).subscribe(res => {
+      this.renderer2.setAttribute(this.verificationCode.nativeElement, 'src', res.data);
+    });
   }
 
   login() {

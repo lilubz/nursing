@@ -8,6 +8,7 @@ import {PrimeTemplate} from 'primeng/primeng';
 import { TreeDragDropService } from 'primeng/primeng';
 import {Subscription} from 'rxjs/Subscription';
 import { BlockableUI } from 'primeng/primeng';
+import { INTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser/src/browser';
 
 @Component({
     selector: 'p-treeNode',
@@ -320,6 +321,8 @@ export class Tree implements OnInit,AfterContentInit,OnDestroy,BlockableUI {
 
     @Input() value: TreeNode[];
 
+    @Input() selectionInit: boolean;
+
     @Input() selectionMode: string;
 
     @Input() selection: any;
@@ -391,14 +394,6 @@ export class Tree implements OnInit,AfterContentInit,OnDestroy,BlockableUI {
     constructor(public el: ElementRef, @Optional() public dragDropService: TreeDragDropService) {}
 
     ngOnInit() {
-        if (this.isCheckboxSelectionMode()) { // 修复selection父节点和子节点的勾选状态不正确的 bug.
-            this.selection.forEach(item => {
-                this.fixSelectionNodeParentAndChildren(item);
-            });
-            setTimeout(() => {
-                this.selectionChange.emit(this.selection);
-            }, 0);
-        }
         if(this.droppableNodes) {
             this.dragStartSubscription = this.dragDropService.dragStart$.subscribe(
               event => {
@@ -418,6 +413,17 @@ export class Tree implements OnInit,AfterContentInit,OnDestroy,BlockableUI {
                 this.dragNodeScope = null;
                 this.dragHover = false;
             });
+        }
+    }
+
+    ngOnChanges() {
+        if (!this.selectionInit) {
+            if (this.isCheckboxSelectionMode()) { // 修复selection父节点和子节点的勾选状态不正确的 bug.
+                this.selection.forEach(item => {
+                    this.fixSelectionNodeParentAndChildren(item);
+                });
+            }
+        } else {
         }
     }
 

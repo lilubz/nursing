@@ -21,4 +21,8 @@ export class LoginService {
     return this.httpService.getRequest(API.logout, params);
   }
 
+  getVerificationCode(params?: any): Observable<any> {
+    return this.httpService.getRequest(API.verificationCode, params);
+  }
+
 }

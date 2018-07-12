@@ -36,6 +36,7 @@ import {
   StepsModule,
 } from 'primeng/primeng';
 import { TableModule } from 'primeng/table';
+import { WitSplitButtonModule } from './wit-splitbutton/wit-splitbutton';
 import { TreeModule } from './tree/tree';
 import { LoadingComponent } from './loading/loading.component';
 import { DialogModule } from 'primeng/dialog';
@@ -84,6 +85,7 @@ import { AdmissionHealthComponent } from './admission/admission-health/admission
     TooltipModule,
     TableModule,
     TreeModule,
+    WitSplitButtonModule,
     _SharedModule,
     StepsModule,
   ],
@@ -137,9 +139,9 @@ import { AdmissionHealthComponent } from './admission/admission-health/admission
     TableModule,
     TreeModule,
     TooltipModule,
+    WitSplitButtonModule,
     _SharedModule,
     StepsModule,
-    
     BackComponent,
     LoadingComponent,
     PageNotFoundComponent,

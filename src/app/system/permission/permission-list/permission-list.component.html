@@ -1,3 +1,65 @@
-<p>
-  permission-list works!
-</p>
+<div class="account">
+
+  <form (submit)="onSubmit()">
+    <div class="form-group">
+      <label for="">角色名称：</label>
+      <input class="form-control" type="text" pInputText placeholder="搜索值1" [(ngModel)]="form.roleName" name="roleName">
+    </div>
+    <button type="submit" pButton label="搜索" class="btn-Warning "></button>
+    <div class="form-group right">
+      <button type="button" pButton label="新增" class="btn-Primary" [routerLink]="['../detail']" [queryParams]="{type:'insert'}"></button>
+      <button type="button" pButton label="删除" class="btn-Success" (click)="deleteRole()"></button>
+    </div>
+  </form>
+
+  <div class="table">
+    <p-table [value]="table.list" [first]="table.first" [(selection)]="table.selected" (onLazyLoad)="onPageChange($event)" [paginator]="true"
+      [rows]="table.rows" [totalRecords]="table.total" [rowsPerPageOptions]="[10,20,30]" [lazy]="true" [loading]="table.loading"
+      loadingIcon="fa-spinner fa-pulse fa-4x fa-fw">
+
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th style="width: 2.25em">
+            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+          </th>
+          <th style="width: 80px">序号</th>
+          <th>角色名称</th>
+          <th>角色描述</th>
+          <th>用户数</th>
+          <th style="width: 140px">操作</th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-rowData let-index="rowIndex">
+        <tr>
+          <td>
+            <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+          </td>
+          <td>{{index+1}}</td>
+          <td>{{rowData?.roleName}}</td>
+          <td>{{rowData?.remark}}</td>
+          <td>{{rowData?.userCount}}</td>
+          <td style="width: 160px">
+            <a href="javascript: void(0)" [routerLink]="['../detail']" 
+            [queryParams]="{type:'select',id:rowData.roleId, name:rowData.roleName,remark:rowData.remark}">查看权限</a> &nbsp;
+            <a href="javascript: void(0)" [routerLink]="['../detail']" 
+            [queryParams]="{type:'update',id:rowData.roleId, name:rowData.roleName,remark:rowData.remark}">修改权限</a>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td [attr.colspan]="6">
+            未查到数据！
+          </td>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="paginatorright">
+        <div style="line-height: 25px">共 10 条记录</div>
+      </ng-template>
+    </p-table>
+  </div>
+
+
+</div>

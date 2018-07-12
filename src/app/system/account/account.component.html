@@ -1,115 +1,115 @@
 
 <div class="account">
 
-  <form class="ui-g" (submit)="onSubmit()">
-    <div class="form-group ui-g-5">
-      <label class="search-label text-right"> 账号列表</label>
-      <p-dropdown [options]="dropdown.searchType1" [(ngModel)]="form.searchType1" name="searchType1"></p-dropdown>
-      <input type="text" pInputText placeholder="搜索值1" [(ngModel)]="form.searchValue1" name="searchValue1">
+  <form (submit)="onSubmit()">
+    <div class="form-group">
+      <p-dropdown [options]="dropdown.searchType" [(ngModel)]="form.searchType1" name="searchType1" [style]="{'width':'120px'}"></p-dropdown>
+      <input class="form-control" type="text" pInputText placeholder="搜索值1" [(ngModel)]="form.searchValue1" name="searchValue1" >
     </div>
-    <div class="form-group ui-g-5">
-      <p-dropdown [options]="dropdown.searchType2" [(ngModel)]="form.searchType2" name="searchType2"></p-dropdown>
-      <input type="text" pInputText placeholder="搜索值1" [(ngModel)]="form.searchValue2" name="searchValue2">
+    <div class="form-group">
+      <p-dropdown [options]="dropdown.searchType" [(ngModel)]="form.searchType2" name="searchType2" [style]="{'width':'120px'}"></p-dropdown>
+      <input class="form-control" type="text" pInputText placeholder="搜索值1" [(ngModel)]="form.searchValue2" name="searchValue2">
     </div>
     <button type="submit" pButton label="搜索" class="btn-Warning "></button>
+    <div class="form-group right">
+      <button type="button" pButton label="添加" class="btn-Warning" (click)="openDialog('添加')"></button>
+      <wit-splitButton label="更多操作" [model]="splitButtonConfig"></wit-splitButton>
+    </div>
   </form>
 
-  <div class="ui-g">
-    <div class="table">
-      <p-table [value]="table.list" [first]="table.first" [(selection)]="table.selected" (onLazyLoad)="onPageChange($event)" 
-      [paginator]="true" [rows]="table.rows" [totalRecords]="table.total" [rowsPerPageOptions]="[10,20,30]" [lazy]="true"
-      [loading]="table.loading" loadingIcon="fa-spinner fa-pulse fa-4x fa-fw">
-      
-        <ng-template pTemplate="header" let-columns>
-          <tr>
-            <th style="width: 2.25em">
-              <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-            </th>
-            <th>账号</th>
-            <th>姓名</th>
-            <th>手机号码</th>
-            <th>角色名称</th>
-            <th>添加时间</th>
-            <th>账号状态</th>
-            <th>最后登录</th>
-            <th style="width: 140px">操作</th>
-          </tr>
-        </ng-template>
-      
-        <ng-template pTemplate="body" let-rowData let-index="rowIndex">
-          <tr>
-            <td>
-              <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
-            </td>
-            <td>{{index+1}}</td>
-            <td>{{rowData?.realname}}</td>
-            <td>{{rowData?.phone}}</td>
-            <td>{{rowData?.remark}}</td>
-            <td>{{rowData?.color}}</td>
-            <td>{{rowData?.status}}</td>
-            <td>{{rowData?.updateTime}}</td>
-            <td style="width: 140px">
-              <a href="javascript: void(0)" (click)="openDialog(rowData)">编辑</a>
-            </td>
-          </tr>
-        </ng-template>
-        <ng-template pTemplate="emptymessage" let-columns>
-          <tr>
-            <td [attr.colspan]="5">
-              未查到数据！
-            </td>
-          </tr>
-        </ng-template>
-
-        <ng-template pTemplate="paginatorright">
-          <div style="line-height: 25px">共 10 条记录</div>
-        </ng-template>
-      </p-table>
-    </div>
+  <div class="table">
+    <p-table [value]="table.list" [first]="table.first" [(selection)]="table.selected" (onLazyLoad)="onPageChange($event)" [paginator]="true"
+      [rows]="table.rows" [totalRecords]="table.total" [rowsPerPageOptions]="[10,20,30]" [lazy]="true" [loading]="table.loading"
+      loadingIcon="fa-spinner fa-pulse fa-4x fa-fw">
+  
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th style="width: 2.25em">
+            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+          </th>
+          <th>账号</th>
+          <th>姓名</th>
+          <th>手机号码</th>
+          <th>角色名称</th>
+          <th>添加时间</th>
+          <th>账号状态</th>
+          <th>最后登录</th>
+          <th style="width: 140px">操作</th>
+        </tr>
+      </ng-template>
+  
+      <ng-template pTemplate="body" let-rowData let-index="rowIndex">
+        <tr>
+          <td>
+            <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+          </td>
+          <td>{{index+1}}</td>
+          <td>{{rowData?.realname}}</td>
+          <td>{{rowData?.phone}}</td>
+          <td>{{rowData?.remark}}</td>
+          <td>{{rowData?.createTime | date: 'yyyy-MM-dd'}}</td>
+          <td>{{rowData?.status === 1 ? '启用' : '禁用'}}</td>
+          <td>{{rowData?.updateTime | date: 'yyyy-MM-dd'}}</td>
+          <td style="width: 140px">
+            <a href="javascript: void(0)" (click)="openDialog('编辑',rowData)">编辑</a>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td [attr.colspan]="5">
+            未查到数据！
+          </td>
+        </tr>
+      </ng-template>
+  
+      <ng-template pTemplate="paginatorright">
+        <div style="line-height: 25px">共 10 条记录</div>
+      </ng-template>
+    </p-table>
   </div>
 
-  <p-dialog [visible]="dialog.visible" [positionTop]="90" [responsive]="true" [showHeader]="false " [modal]="true " [closable]="false"
-    [width]="800 " [contentStyle]="{ 'padding': '0'} " [style]="{ 'border': 'none'} ">
-    <h3 class="dialogtitle" style="text-align:center">新增储配站信息</h3>
-    <form class="ui-g-12 " style="height:220px" (submit)="confirmEdit()">
-      <div class="form-group ui-g-5">
-        <label for="">修改账号名称</label>
-        <input type="text" pInputText [(ngModel)]="dialogForm.username" name="username">
+  <p-dialog [(visible)]="dialog.visible" [positionTop]="90" [responsive]="true" [header]="dialog.type + '成员'" [modal]="true"
+    [width]="800 " [contentStyle]="{ 'padding': '0'}">
+    <form class="ui-g-12"(submit)="addOrEdit()">
+      <div class="form-group ui-g-offset-3 ui-g-6">
+        <label for="">账号名称:</label>
+        <input class="form-control" type="text" pInputText [(ngModel)]="dialogForm.username" name="username">
       </div>
-      <div class="form-group ui-g-5">
-        <label for="">修改成员姓名</label>
-        <input type="text" pInputText [(ngModel)]="dialogForm.memberName" name="memberName">
+      <div class="form-group ui-g-offset-3 ui-g-6">
+        <label for="">成员姓名:</label>
+        <input class="form-control" type="text" pInputText [(ngModel)]="dialogForm.memberName" name="memberName">
       </div>
-      <div class="form-group ui-g-5">
-        <label for="">修改手机号码：</label>
-        <input type="text" pInputText [(ngModel)]="dialogForm.phone" name="phone">
+      <div class="form-group ui-g-offset-3 ui-g-6">
+        <label for="">手机号码:</label>
+        <input class="form-control" type="text" pInputText [(ngModel)]="dialogForm.phone" name="phone">
       </div>
-      <div class="form-group ui-g-5">
-        <label for=""> 修改角色选择：</label>
-        <input type="text" pInputText [(ngModel)]="dialogForm.role" name="role">
+      <div class="form-group ui-g-offset-3 ui-g-6">
+        <label for=""> 角色选择:</label>
+        <p-multiSelect [options]="dropdown.rolesType"  [style]="{'width':'260px','vertical-align':'middle','height':'30px','margin-left':'10px'}"
+         [(ngModel)]="dialogForm.role" name="role" defaultLabel="选择一个或多个角色"></p-multiSelect>
       </div>
-      <div class="form-group ui-g-5">
-        <label for="">修改身份证号码</label>
-        <input type="text" pInputText [(ngModel)]="dialogForm.idCard" name="idCard">
+      <div class="form-group ui-g-offset-3 ui-g-6">
+        <label for="">身份证号码:</label>
+        <input class="form-control" type="text" pInputText [(ngModel)]="dialogForm.idCard" name="idCard">
       </div>
-      <div class="form-group ui-g-5">
-        <label for="">修改输入密码</label>
-        <input type="text" pInputText [(ngModel)]="dialogForm.password" name="password">
+      <div class="form-group ui-g-offset-3 ui-g-6">
+        <label for="">输入密码:</label>
+        <input class="form-control" type="text" pInputText [(ngModel)]="dialogForm.password" name="password">
       </div>
-      <div class="form-group ui-g-5">
-        <label for="">账号状态</label>
-        <input type="text" pInputText [(ngModel)]="dialogForm.state" name="state">
+      <div class="form-group ui-g-offset-3 ui-g-6">
+        <label for="">账号状态:</label>
+        <p-toggleButton [(ngModel)]="dialogForm.state" name="state" onLabel="启用" offLabel="禁用" [style]="{'height':'30px','margin-left':'10px'}"></p-toggleButton>
       </div>
-      <div class="form-group ui-g-5">
-        <label for="">备注信息：</label>
-        <input type="text" pInputText [(ngModel)]="dialogForm.comment" name="comment">
+      <div class="form-group ui-g-offset-3 ui-g-6">
+        <label for="">备注信息:</label>
+        <input class="form-control" type="text" pInputText [(ngModel)]="dialogForm.comment" name="comment">
       </div>
-      <button type="submit" pButton label="确认新增"></button>
+
+      <footer class="ui-g-12 text-center">
+        <button type="submit" pButton label="提交"></button>
+      </footer>
     </form>
-    <p-footer>
-      <button type="submit" pButton label="确认新增"></button>
-      <button type="button" pButton label="关闭" (click)="dialog.visible = false"></button>
-    </p-footer>
   </p-dialog>
 
 </div>

@@ -1,0 +1,28 @@
+<div #container [ngClass]="{'ui-splitbutton ui-buttonset ui-widget':true,'ui-state-disabled':disabled}" [ngStyle]="style"
+  [class]="styleClass">
+  <button style="border-radius: 4px;" #defaultbtn type="button" pButton [icon]="'fa-caret-down'" [iconPos]="'right'" [label]="label" [cornerStyleClass]="dir === 'rtl' ? 'ui-corner-right': 'ui-corner-left'"
+    (click)="onDropdownButtonClick($event)" [disabled]="disabled" [attr.tabindex]="tabindex">
+    <!-- <i class="ui-button-icon-left ui-clickable fa fa-fw fa-caret-down"></i> -->
+  </button>
+  <button *ngIf="false" type="button" pButton class="ui-splitbutton-menubutton" icon="fa-caret-down" [cornerStyleClass]="dir === 'rtl' ? 'ui-corner-left': 'ui-corner-right'"
+    (click)="onDropdownButtonClick($event)" [disabled]="disabled"></button>
+  <div #overlay [ngClass]="'ui-menu ui-menu-dynamic ui-widget ui-widget-content ui-corner-all ui-helper-clearfix ui-shadow'"
+    [style.display]="menuVisible ? 'block' : 'none'" [ngStyle]="menuStyle" [class]="menuStyleClass" [@overlayState]="menuVisible ? 'visible' : 'hidden'">
+    <ul class="ui-menu-list ui-helper-reset">
+      <ng-template ngFor let-item [ngForOf]="model">
+        <li class="ui-menuitem ui-widget ui-corner-all" role="menuitem" *ngIf="item.visible !== false">
+          <a *ngIf="!item.routerLink" [href]="item.url||'#'" class="ui-menuitem-link ui-corner-all" [attr.target]="item.target" [ngClass]="{'ui-state-disabled':item.disabled}"
+            (click)="itemClick($event, item)">
+            <span [ngClass]="'ui-menuitem-icon fa fa-fw'" [class]="item.icon" *ngIf="item.icon"></span>
+            <span class="ui-menuitem-text">{{item.label}}</span>
+          </a>
+          <a *ngIf="item.routerLink" [routerLink]="item.routerLink" [queryParams]="item.queryParams" class="ui-menuitem-link ui-corner-all"
+            [attr.target]="item.target" [ngClass]="{'ui-state-disabled':item.disabled}" (click)="itemClick($event, item)">
+            <span [ngClass]="'ui-menuitem-icon fa fa-fw'" [class]="item.icon" *ngIf="item.icon"></span>
+            <span class="ui-menuitem-text">{{item.label}}</span>
+          </a>
+        </li>
+      </ng-template>
+    </ul>
+  </div>
+</div>

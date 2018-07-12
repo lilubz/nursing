@@ -63,4 +63,12 @@ export class SystemService {
     return this.httpService.getRequest(API.getUserList, params, selector);
   }
 
+  updatePassword(params?: any, selector?): Observable<any> {
+    return this.httpService.formPostRequest(API.updatePassword, params, selector);
+  }
+
+  getOrganizationList(params?: any, selector?): Observable<any> {
+    return this.httpService.getRequest(API.getOrganizationList, params, selector);
+  }
+
 }

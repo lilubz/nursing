@@ -14,7 +14,7 @@
     </div>
     <div class="form-group">
       <input [(ngModel)]="formMode.verificationCode" name="verificationCode" type="text" size="30" pInputText placeholder="验证码">
-      <img src="{{verificationCodeUrl}}" alt="验证码加载失败，点击重试" class="verificationCode pointer" (click)="refreshVerificationCode()">
+      <img #verificationCode src="/" alt="验证码加载失败，点击重试" class="verificationCode pointer" (click)="refreshVerificationCode()">
     </div>
 
     <div class="checkbox-wrapper clear-fix">

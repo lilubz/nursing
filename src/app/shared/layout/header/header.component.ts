@@ -30,13 +30,10 @@ export class HeaderComponent implements OnInit {
       header: '已经登录 是否要注销',
       icon: 'fa fa-exclamation-triangle',
       accept: () => {
-        this.loginService.logout()
-          .subscribe(res => {
-            if (res.status === 200) {
-              this.userStateService.user = null;
-              this.router.navigate(['login']);
-          }
-          });
+        this.loginService.logout().subscribe(res => {
+          this.userStateService.user = null;
+          this.router.navigate(['login']);
+        });
 
       },
       reject: () => {

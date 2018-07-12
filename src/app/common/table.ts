@@ -8,6 +8,7 @@ export class Table {
     this.total = 0;
     this.selected = [];
     this.rows = 10;
+    this.params = {};
   }
   list?: object | [any] = [];
   first?: number;
@@ -17,5 +18,6 @@ export class Table {
   total?: number;
   selected?: any;
   rows?: number;
+  params?: any;
 }
 

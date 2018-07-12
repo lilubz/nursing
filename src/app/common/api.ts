@@ -1,6 +1,6 @@
 
 // const URL = 'http://192.168.1.127:8080/'; // 喜孩
-const URL = 'http://192.168.1.77:8801/intelligentOldAgeCare/'; // 喜孩
+const URL = '/intelligentOldAgeCare/'; // 喜孩
 // const URL = 'http://192.168.1.127:8080/';
 export const API = {
   // 项目地址
@@ -27,5 +27,6 @@ export const API = {
   'editRole': URL + 'sysSetting/sysPermission/editRole.do',
   'addRole': URL + 'sysSetting/sysPermission/addRole.do',
   'getUserList': URL + 'sysSetting/user/getUserList.do',
+  'getOrganizationList': URL + 'sysSetting/sysPermission/getOrganizationList.do',
 
 };

@@ -1,7 +1,12 @@
-.form-group{
-  // line-height: 30px;
-}
 
-i:before{
-  content: \f110;
+.form-group{
+  label{
+    width: 80px;
+  }
+  .form-control{
+    width: 260px;
+  }
+}
+.table{
+  margin-top: 20px;
 }
